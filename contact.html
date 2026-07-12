@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Meridian Interior Group</title>
+<meta name="description" content="Start a conversation with Meridian Interior Group. Reach out about a project, a career, or subcontractor prequalification across seven offices.">
+<meta name="theme-color" content="#16181B">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Contact — Meridian Interior Group">
+<meta property="og:description" content="Reach out to start the conversation — projects, careers, and subcontractors.">
+<link rel="canonical" href="https://www.meridianinterior.example/contact.html">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="topnav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Meridian Interior Group home"><span class="dot" aria-hidden="true"></span>MERIDIAN <small>Interior&nbsp;Group</small></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="item"><a class="top" href="services.html">Services</a></div>
+      <div class="item"><a class="top" href="locations.html">Locations</a></div>
+      <div class="item"><a class="top" href="projects.html">Projects</a></div>
+      <div class="item"><button class="top" aria-haspopup="true" aria-expanded="false">About <span class="caret" aria-hidden="true"></span></button><div class="menu" role="menu"><a href="about.html" role="menuitem">Who We Are</a><a href="about.html#ownership" role="menuitem">Employee Ownership</a><a href="about.html#leadership" role="menuitem">Leadership</a><a href="resources.html" role="menuitem">News &amp; Insights</a></div></div>
+      <div class="item"><button class="top" aria-haspopup="true" aria-expanded="false">Careers <span class="caret" aria-hidden="true"></span></button><div class="menu" role="menu"><a href="careers.html" role="menuitem">Open Roles</a><a href="careers.html#internships" role="menuitem">Internships</a><a href="careers.html#benefits" role="menuitem">Benefits &amp; Ownership</a></div></div>
+      <div class="item"><a class="top" href="resources.html">Resources</a></div>
+    </nav>
+    <div class="nav-cta">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle color theme" title="Toggle theme">◐</button>
+      <a class="btn btn--primary" href="contact.html" aria-current="page">Contact Us</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <div id="mnav"><a href="services.html">Services</a><a href="locations.html">Locations</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="careers.html">Careers</a><a href="resources.html">Resources</a><a href="contact.html" aria-current="page">Contact Us</a></div>
+</header>
+
+<main id="main">
+  <section class="phero">
+    <div class="phero-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80" alt="" loading="eager"></div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sepc">/</span><span>Contact</span></nav>
+      <span class="eyebrow">Start the Conversation</span>
+      <h1>Let's build something <em>together</em>.</h1>
+      <p class="lead">Whether you have a project, a career in mind, or a trade to offer — reach out. The right local team will get back to you.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="contact-split">
+        <!-- FORM -->
+        <div class="reveal">
+          <h2 style="font-size:var(--step-2)">Send us a note</h2>
+          <p class="muted" style="margin:12px 0 26px">Tell us a little about what you're after. Fields marked <span style="color:var(--accent)">*</span> are required.</p>
+          <form data-validate data-success="contactSuccess" novalidate aria-label="Contact form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="c-name">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Jordan Rivera">
+                <span class="err">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="c-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="c-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com">
+                <span class="err">Please enter a valid email address.</span>
+              </div>
+              <div class="field">
+                <label for="c-company">Company</label>
+                <input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Company name">
+                <span class="err"></span>
+              </div>
+              <div class="field">
+                <label for="c-phone">Phone</label>
+                <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="(303) 555-0142">
+                <span class="err"></span>
+              </div>
+              <div class="field">
+                <label for="c-type">I'm reaching out about <span class="req" aria-hidden="true">*</span></label>
+                <select id="c-type" name="type" required>
+                  <option value="">Select one…</option>
+                  <option>A construction project</option>
+                  <option>Careers &amp; hiring</option>
+                  <option>Subcontractor prequalification</option>
+                  <option>Media or partnership</option>
+                  <option>Something else</option>
+                </select>
+                <span class="err">Please choose a topic.</span>
+              </div>
+              <div class="field">
+                <label for="c-office">Nearest office</label>
+                <select id="c-office" name="office">
+                  <option value="">No preference</option>
+                  <option>Denver, CO</option>
+                  <option>Austin, TX</option>
+                  <option>Phoenix, AZ</option>
+                  <option>Portland, OR</option>
+                  <option>Salt Lake City, UT</option>
+                  <option>Nashville, TN</option>
+                  <option>Boise, ID</option>
+                </select>
+                <span class="err"></span>
+              </div>
+              <div class="field full">
+                <label for="c-message">How can we help? <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="c-message" name="message" required placeholder="A few details about your project, timeline, or question…"></textarea>
+                <span class="err">Please add a short message.</span>
+              </div>
+            </div>
+            <p style="margin-top:22px"><button class="btn btn--primary" type="submit">Send Message <span class="arw" aria-hidden="true">→</span></button></p>
+            <p class="form-note">// Demo form — submissions are validated in the browser but not stored or sent anywhere.</p>
+          </form>
+          <div class="form-success" id="contactSuccess">
+            <h3>Message received ✓</h3>
+            <p>Thanks for reaching out. A member of the right local team would normally follow up within one business day. (This is a demonstration site, so nothing was actually transmitted.)</p>
+          </div>
+        </div>
+
+        <!-- ASIDE -->
+        <aside class="contact-aside reveal" aria-label="Other ways to reach us">
+          <div class="blk">
+            <div class="lab">Headquarters</div>
+            <h3>Denver</h3>
+            <p class="muted">1401 Wynkoop Street, Suite 400<br>Denver, CO 80202</p>
+            <p style="margin-top:10px" class="mono"><a href="tel:+13035550142">303 · 555 · 0142</a></p>
+          </div>
+          <div class="blk">
+            <div class="lab">Projects</div>
+            <p><a href="mailto:build@meridianinterior.example">build@meridianinterior.example</a></p>
+          </div>
+          <div class="blk">
+            <div class="lab">Careers</div>
+            <p><a href="mailto:careers@meridianinterior.example">careers@meridianinterior.example</a></p>
+          </div>
+          <div class="blk" id="subcontractors">
+            <div class="lab">Subcontractors</div>
+            <p class="muted">Want on our bid list? Choose “Subcontractor prequalification” in the form and our preconstruction team will start you through prequal.</p>
+          </div>
+          <div class="blk">
+            <div class="lab">All Offices</div>
+            <p><a href="locations.html">View all seven locations →</a></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--alt">
+    <div class="wrap"><div class="cta-band reveal">
+      <div class="cta-card"><span class="eyebrow">Explore</span><h3>See what we build.</h3><p>Five sectors, delivered at scale by owner-employees.</p><a class="btn btn--primary" href="services.html">View Services <span class="arw" aria-hidden="true">→</span></a></div>
+      <div class="cta-card dark"><span class="eyebrow">Careers</span><h3>Build as an owner.</h3><p>Open roles across all seven offices.</p><a class="btn btn--onink" href="careers.html">See Open Roles <span class="arw" aria-hidden="true">→</span></a></div>
+    </div></div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand"><a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>MERIDIAN <small>Interior&nbsp;Group</small></a><p>100% employee-owned commercial interior construction. Built around people since 2001.</p></div>
+      <div class="foot-col"><h4>Build</h4><a href="services.html#office">Commercial Office</a><a href="services.html#science">Science &amp; Technology</a><a href="services.html#health">Healthcare</a><a href="services.html#hospitality">Hospitality</a><a href="services.html#industrial">Industrial</a></div>
+      <div class="foot-col"><h4>Company</h4><a href="about.html">Who We Are</a><a href="about.html#ownership">Employee Ownership</a><a href="projects.html">Projects</a><a href="resources.html">Insights</a></div>
+      <div class="foot-col"><h4>Offices</h4><a href="locations.html">Denver</a><a href="locations.html">Austin</a><a href="locations.html">Phoenix</a><a href="locations.html">Portland · SLC · Nashville · Boise</a></div>
+      <div class="foot-col"><h4>Connect</h4><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="contact.html#subcontractors">Subcontractors</a></div>
+    </div>
+    <div class="foot-bot">
+      <div class="social" aria-label="Social links"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="X">X</a></div>
+      <div class="legal"><span>© <span data-year>2026</span> Meridian Interior Group</span><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+    <p class="disclaimer">// This is a fictional demonstration site. Emails, phone numbers, and addresses are invented for design purposes and are not monitored.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Meridian Interior Group</title>
+<meta name="description" content="A portfolio of completed commercial interior projects across office, life science, healthcare, and hospitality — filterable by region and sector.">
+<meta name="theme-color" content="#16181B">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Projects — Meridian Interior Group">
+<meta property="og:description" content="Selected commercial interior work across the Mountain West, Southwest, and Pacific Northwest.">
+<link rel="canonical" href="https://www.meridianinterior.example/projects.html">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="topnav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Meridian Interior Group home"><span class="dot" aria-hidden="true"></span>MERIDIAN <small>Interior&nbsp;Group</small></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="item"><a class="top" href="services.html">Services</a></div>
+      <div class="item"><a class="top" href="locations.html">Locations</a></div>
+      <div class="item"><a class="top" href="projects.html" aria-current="page">Projects</a></div>
+      <div class="item"><button class="top" aria-haspopup="true" aria-expanded="false">About <span class="caret" aria-hidden="true"></span></button><div class="menu" role="menu"><a href="about.html" role="menuitem">Who We Are</a><a href="about.html#ownership" role="menuitem">Employee Ownership</a><a href="about.html#leadership" role="menuitem">Leadership</a><a href="resources.html" role="menuitem">News &amp; Insights</a></div></div>
+      <div class="item"><button class="top" aria-haspopup="true" aria-expanded="false">Careers <span class="caret" aria-hidden="true"></span></button><div class="menu" role="menu"><a href="careers.html" role="menuitem">Open Roles</a><a href="careers.html#internships" role="menuitem">Internships</a><a href="careers.html#benefits" role="menuitem">Benefits &amp; Ownership</a></div></div>
+      <div class="item"><a class="top" href="resources.html">Resources</a></div>
+    </nav>
+    <div class="nav-cta">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle color theme" title="Toggle theme">◐</button>
+      <a class="btn btn--primary" href="contact.html">Contact Us</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <div id="mnav"><a href="services.html">Services</a><a href="locations.html">Locations</a><a href="projects.html" aria-current="page">Projects</a><a href="about.html">About</a><a href="careers.html">Careers</a><a href="resources.html">Resources</a><a href="contact.html">Contact Us</a></div>
+</header>
+
+<main id="main">
+  <section class="phero">
+    <div class="phero-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80" alt="" loading="eager"></div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sepc">/</span><span>Projects</span></nav>
+      <span class="eyebrow">Selected Work</span>
+      <h1>Difficult work, made to <em>look easy</em>.</h1>
+      <p class="lead">A representative slice of the offices, labs, clinics, and venues we've delivered. Filter by region and sector to see how our capabilities come together on real jobs.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter projects">
+        <div class="grp">
+          <span class="glabel">Region</span>
+          <button class="chip" data-type="region" data-val="all" aria-pressed="true">All</button>
+          <button class="chip" data-type="region" data-val="mountain">Mountain West</button>
+          <button class="chip" data-type="region" data-val="southwest">Southwest</button>
+          <button class="chip" data-type="region" data-val="pacific">Pacific NW</button>
+        </div>
+        <div class="sep" aria-hidden="true"></div>
+        <div class="grp">
+          <span class="glabel">Sector</span>
+          <button class="chip" data-type="sector" data-val="all" aria-pressed="true">All</button>
+          <button class="chip" data-type="sector" data-val="office">Office</button>
+          <button class="chip" data-type="sector" data-val="science">Life Science</button>
+          <button class="chip" data-type="sector" data-val="health">Healthcare</button>
+          <button class="chip" data-type="sector" data-val="hospitality">Hospitality</button>
+        </div>
+      </div>
+      <div class="proj-grid" id="projGrid"></div>
+      <p class="empty" id="emptyMsg">// No projects match that combination — try a broader filter.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--alt">
+    <div class="wrap"><div class="cta-band reveal">
+      <div class="cta-card"><span class="eyebrow">Your Project Next</span><h3>Ready to add to this list?</h3><p>Bring us the space, the schedule, and the constraints. We'll bring the team.</p><a class="btn btn--primary" href="contact.html">Build Your Project <span class="arw" aria-hidden="true">→</span></a></div>
+      <div class="cta-card dark"><span class="eyebrow">Capabilities</span><h3>See what we build.</h3><p>Explore the five sectors and how we approach preconstruction.</p><a class="btn btn--onink" href="services.html">View Services <span class="arw" aria-hidden="true">→</span></a></div>
+    </div></div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand"><a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>MERIDIAN <small>Interior&nbsp;Group</small></a><p>100% employee-owned commercial interior construction. Built around people since 2001.</p></div>
+      <div class="foot-col"><h4>Build</h4><a href="services.html#office">Commercial Office</a><a href="services.html#science">Science &amp; Technology</a><a href="services.html#health">Healthcare</a><a href="services.html#hospitality">Hospitality</a><a href="services.html#industrial">Industrial</a></div>
+      <div class="foot-col"><h4>Company</h4><a href="about.html">Who We Are</a><a href="about.html#ownership">Employee Ownership</a><a href="projects.html">Projects</a><a href="resources.html">Insights</a></div>
+      <div class="foot-col"><h4>Offices</h4><a href="locations.html">Denver</a><a href="locations.html">Austin</a><a href="locations.html">Phoenix</a><a href="locations.html">Portland · SLC · Nashville · Boise</a></div>
+      <div class="foot-col"><h4>Connect</h4><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="contact.html#subcontractors">Subcontractors</a></div>
+    </div>
+    <div class="foot-bot">
+      <div class="social" aria-label="Social links"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="X">X</a></div>
+      <div class="legal"><span>© <span data-year>2026</span> Meridian Interior Group</span><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+    <p class="disclaimer">// This is a fictional demonstration site. All projects, clients, and figures shown are invented for design purposes.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

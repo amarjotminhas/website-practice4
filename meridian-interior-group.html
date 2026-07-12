@@ -1,0 +1,878 @@
+<title>Meridian Interior Group — Commercial Interior Construction</title>
+
+<style>
+  /* ============ TOKENS ============ */
+  :root {
+    --paper: #ECEBE6;        /* warm concrete */
+    --paper-2: #E3E1DA;      /* recessed panel */
+    --card: #F4F3EF;         /* raised card */
+    --ink: #17191C;          /* structural ink */
+    --ink-soft: #2A2D31;
+    --slate: #5A6169;        /* secondary text */
+    --slate-2: #868C92;      /* tertiary / captions */
+    --line: rgba(23,25,28,0.14);
+    --line-strong: rgba(23,25,28,0.28);
+    --accent: #BD5B33;       /* copper */
+    --accent-ink: #8F4324;
+    --on-accent: #FBF6F1;
+    --hero-bg: #16181B;
+    --hero-text: #ECEBE6;
+    --hero-line: rgba(236,235,230,0.14);
+    --focus: #BD5B33;
+
+    --maxw: 1240px;
+    --pad: clamp(20px, 5vw, 64px);
+    --sect-y: clamp(64px, 9vw, 132px);
+
+    --f-display: "Helvetica Neue", "Segoe UI", Arial, system-ui, sans-serif;
+    --f-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --f-mono: ui-monospace, "Cascadia Code", "Cascadia Mono", "Consolas", "SFMono-Regular", monospace;
+
+    --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.84rem);
+    --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.09rem);
+    --step-1: clamp(1.2rem, 1.12rem + 0.4vw, 1.5rem);
+    --step-2: clamp(1.5rem, 1.32rem + 0.9vw, 2.1rem);
+    --step-3: clamp(2rem, 1.6rem + 2vw, 3.2rem);
+    --step-4: clamp(2.7rem, 1.9rem + 4vw, 5.6rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #131518;
+      --paper-2: #17191C;
+      --card: #1C1F23;
+      --ink: #ECEBE6;
+      --ink-soft: #D3D2CC;
+      --slate: #9BA1A7;
+      --slate-2: #767C82;
+      --line: rgba(236,235,230,0.13);
+      --line-strong: rgba(236,235,230,0.26);
+      --accent: #D9713F;
+      --accent-ink: #E68A5C;
+      --on-accent: #16110D;
+      --hero-bg: #0E0F11;
+      --hero-text: #ECEBE6;
+      --hero-line: rgba(236,235,230,0.12);
+      --focus: #D9713F;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #ECEBE6; --paper-2: #E3E1DA; --card: #F4F3EF;
+    --ink: #17191C; --ink-soft: #2A2D31; --slate: #5A6169; --slate-2: #868C92;
+    --line: rgba(23,25,28,0.14); --line-strong: rgba(23,25,28,0.28);
+    --accent: #BD5B33; --accent-ink: #8F4324; --on-accent: #FBF6F1;
+    --hero-bg: #16181B; --hero-text: #ECEBE6; --hero-line: rgba(236,235,230,0.14);
+    --focus: #BD5B33;
+  }
+  :root[data-theme="dark"] {
+    --paper: #131518; --paper-2: #17191C; --card: #1C1F23;
+    --ink: #ECEBE6; --ink-soft: #D3D2CC; --slate: #9BA1A7; --slate-2: #767C82;
+    --line: rgba(236,235,230,0.13); --line-strong: rgba(236,235,230,0.26);
+    --accent: #D9713F; --accent-ink: #E68A5C; --on-accent: #16110D;
+    --hero-bg: #0E0F11; --hero-text: #ECEBE6; --hero-line: rgba(236,235,230,0.12);
+    --focus: #D9713F;
+  }
+
+  /* ============ BASE ============ */
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: var(--step-0);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 800; line-height: 1.03; letter-spacing: -0.025em; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ::selection { background: var(--accent); color: var(--on-accent); }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+  .eyebrow {
+    font-family: var(--f-mono); font-size: var(--step--1); text-transform: uppercase;
+    letter-spacing: 0.18em; color: var(--accent); display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; display: inline-block; }
+  .mono { font-family: var(--f-mono); }
+  .coord { font-family: var(--f-mono); font-size: var(--step--1); color: var(--slate-2); letter-spacing: 0.02em; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; font-weight: 600;
+    font-size: var(--step-0); padding: 14px 24px; border-radius: 2px; cursor: pointer;
+    border: 1px solid transparent; transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    line-height: 1;
+  }
+  .btn .arw { transition: transform .2s ease; }
+  .btn:hover .arw { transform: translateX(4px); }
+  .btn--primary { background: var(--accent); color: var(--on-accent); }
+  .btn--primary:hover { background: var(--accent-ink); }
+  .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+  .btn--ghost:hover { border-color: var(--ink); }
+  .btn--onink { background: transparent; color: var(--hero-text); border-color: rgba(236,235,230,0.4); }
+  .btn--onink:hover { background: var(--hero-text); color: var(--hero-bg); }
+  @media (prefers-reduced-motion: reduce) { .btn, .btn .arw { transition: none; } }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  /* ============ NAV ============ */
+  header.nav {
+    position: sticky; top: 0; z-index: 60;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(1.2) blur(10px);
+    border-bottom: 1px solid var(--line);
+    transition: padding .2s ease;
+  }
+  .nav-inner { display: flex; align-items: center; gap: 28px; height: 68px; }
+  .brand { display: flex; align-items: baseline; gap: 9px; font-family: var(--f-display); font-weight: 800; letter-spacing: -0.03em; font-size: 1.28rem; }
+  .brand .dot { width: 9px; height: 9px; background: var(--accent); border-radius: 50%; align-self: center; }
+  .brand small { font-family: var(--f-mono); font-weight: 500; font-size: 0.62rem; letter-spacing: 0.16em; color: var(--slate); text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+  .nav-links > .item { position: relative; }
+  .nav-links a.top, .nav-links button.top {
+    font: inherit; background: none; border: 0; cursor: pointer; color: var(--ink);
+    font-size: 0.95rem; font-weight: 500; padding: 10px 14px; display: inline-flex; align-items: center; gap: 6px;
+    border-radius: 2px;
+  }
+  .nav-links a.top:hover, .nav-links button.top:hover { color: var(--accent); }
+  .caret { width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); opacity: .55; }
+  .menu {
+    position: absolute; top: calc(100% + 6px); left: 0; min-width: 230px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+    padding: 8px; box-shadow: 0 18px 50px -20px rgba(0,0,0,0.4);
+    opacity: 0; visibility: hidden; transform: translateY(6px); transition: .16s ease;
+  }
+  .item:hover .menu, .item:focus-within .menu { opacity: 1; visibility: visible; transform: none; }
+  .menu a { display: block; padding: 9px 12px; border-radius: 3px; font-size: 0.92rem; color: var(--slate); }
+  .menu a:hover { background: var(--paper-2); color: var(--ink); }
+  .nav-cta { margin-left: 8px; display: flex; align-items: center; gap: 10px; }
+  .theme-btn {
+    font: inherit; cursor: pointer; background: none; border: 1px solid var(--line-strong);
+    color: var(--ink); width: 38px; height: 38px; border-radius: 2px; display: grid; place-items: center; font-size: 15px;
+  }
+  .theme-btn:hover { border-color: var(--ink); }
+  .burger { display: none; }
+  @media (max-width: 940px) {
+    .nav-links, .nav-cta .btn { display: none; }
+    .burger { display: grid; place-items: center; width: 40px; height: 40px; background: none; border: 1px solid var(--line-strong); border-radius: 2px; cursor: pointer; color: var(--ink); }
+    .burger span, .burger span::before, .burger span::after { content:""; display:block; width:18px; height:1.5px; background: currentColor; position: relative; }
+    .burger span::before { position:absolute; top:-6px; } .burger span::after { position:absolute; top:6px; }
+  }
+  /* mobile panel */
+  #mnav { display: none; border-bottom: 1px solid var(--line); background: var(--paper); }
+  #mnav.open { display: block; }
+  #mnav a { display: block; padding: 13px var(--pad); border-top: 1px solid var(--line); font-size: 1rem; }
+  #mnav a:first-child { border-top: 0; }
+
+  /* ============ HERO ============ */
+  .hero { position: relative; background: var(--hero-bg); color: var(--hero-text); overflow: hidden; }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.9; }
+  .hero-grid { position: absolute; inset: 0; background-image:
+      linear-gradient(var(--hero-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hero-line) 1px, transparent 1px);
+    background-size: 64px 64px; mask-image: radial-gradient(120% 90% at 70% 0%, #000 30%, transparent 78%); }
+  .hero-inner { position: relative; z-index: 2; padding-block: clamp(72px, 12vw, 148px); }
+  .hero .eyebrow { color: var(--accent); }
+  .hero h1 { font-size: var(--step-4); margin: 22px 0 0; max-width: 15ch; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub { margin-top: 26px; max-width: 46ch; font-size: var(--step-1); color: rgba(236,235,230,0.78); line-height: 1.45; }
+  .hero-cta { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-coords { position: relative; z-index: 2; border-top: 1px solid var(--hero-line); }
+  .hero-coords .wrap { display: flex; flex-wrap: wrap; gap: 8px 40px; padding-block: 18px; }
+  .hero-coords span { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(236,235,230,0.5); text-transform: uppercase; }
+  .hero-coords b { color: var(--accent); font-weight: 500; }
+
+  /* ============ STAT BAND ============ */
+  .stats { background: var(--paper-2); border-bottom: 1px solid var(--line); }
+  .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .stat { padding: clamp(28px,4vw,44px) 26px; border-left: 1px solid var(--line); }
+  .stat:first-child { border-left: 0; padding-left: 0; }
+  .stat .num { font-family: var(--f-display); font-weight: 800; font-size: clamp(2rem,4vw,2.9rem); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+  .stat .num .u { color: var(--accent); }
+  .stat .lbl { font-family: var(--f-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.13em; color: var(--slate); margin-top: 12px; }
+  @media (max-width: 860px) { .stats-grid { grid-template-columns: repeat(2,1fr); } .stat { border-left: 1px solid var(--line); padding: 26px 22px; } .stat:first-child { padding-left: 22px; } .stat:nth-child(odd) { border-left: 0; } }
+
+  /* ============ SECTION HEADS ============ */
+  .sec { padding-block: var(--sect-y); }
+  .sec-head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; margin-bottom: clamp(36px,5vw,60px); }
+  .sec-head h2 { font-size: var(--step-3); max-width: 18ch; margin-top: 16px; }
+  .sec-head p.lede { color: var(--slate); max-width: 46ch; font-size: var(--step-1); line-height: 1.45; }
+  @media (max-width: 720px){ .sec-head { grid-template-columns: 1fr; } }
+
+  /* ============ SERVICES ============ */
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .svc {
+    background: var(--card); padding: clamp(24px,3vw,36px); min-height: 260px; display: flex; flex-direction: column;
+    position: relative; transition: background .2s ease;
+  }
+  .svc:hover { background: var(--paper); }
+  .svc .idx { font-family: var(--f-mono); font-size: 0.72rem; color: var(--slate-2); letter-spacing: 0.1em; }
+  .svc .glyph { height: 84px; margin: 6px 0 20px; }
+  .svc h3 { font-size: var(--step-1); }
+  .svc p { color: var(--slate); margin-top: 12px; font-size: 0.96rem; }
+  .svc .more { margin-top: auto; padding-top: 18px; font-family: var(--f-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); display: inline-flex; gap: 8px; align-items: center; }
+  @media (max-width: 900px){ .svc-grid { grid-template-columns: repeat(2,1fr);} }
+  @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr;} }
+
+  /* ============ LOCATIONS ============ */
+  .loc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+  .loc { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; transition: transform .2s ease, border-color .2s ease; }
+  .loc:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .loc h3 { font-size: 1.28rem; letter-spacing: -0.02em; }
+  .loc .coord { display: block; margin: 8px 0 14px; }
+  .loc .addr { color: var(--slate); font-size: 0.9rem; line-height: 1.5; }
+  .loc .tel { margin-top: 12px; font-family: var(--f-mono); font-size: 0.82rem; color: var(--ink); }
+  .loc.hq { background: var(--hero-bg); color: var(--hero-text); border-color: transparent; }
+  .loc.hq .addr { color: rgba(236,235,230,0.7); } .loc.hq .tel { color: var(--accent); } .loc.hq .coord{ color: rgba(236,235,230,0.5);}
+  .loc.hq .tag { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+  @media (max-width: 900px){ .loc-grid { grid-template-columns: repeat(2,1fr);} }
+  @media (max-width: 480px){ .loc-grid { grid-template-columns: 1fr;} }
+
+  /* ============ PORTFOLIO ============ */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .filters .grp { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .filters .glabel { font-family: var(--f-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--slate-2); margin-right: 4px; }
+  .chip {
+    font-family: var(--f-mono); font-size: 0.74rem; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 8px 14px; border: 1px solid var(--line-strong); background: transparent; color: var(--slate);
+    border-radius: 40px; cursor: pointer; transition: .16s ease;
+  }
+  .chip:hover { color: var(--ink); border-color: var(--ink); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .sep { width: 1px; align-self: stretch; background: var(--line); margin: 0 6px; }
+  .proj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .proj { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--card); transition: transform .25s ease; }
+  .proj.hide { display: none; }
+  .proj:hover { transform: translateY(-5px); }
+  .proj:hover .thumb::after { opacity: 1; }
+  .thumb { aspect-ratio: 4/3; position: relative; overflow: hidden; }
+  .thumb::after { content: "VIEW PROJECT →"; position: absolute; inset: auto 0 0 0; padding: 12px 16px; font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.12em; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,0.6)); opacity: 0; transition: .2s ease; }
+  .proj .meta { padding: 16px 18px 20px; }
+  .proj .meta .region { font-family: var(--f-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); }
+  .proj .meta h3 { font-size: 1.16rem; letter-spacing: -0.02em; margin-top: 8px; }
+  .proj .meta .tags { margin-top: 10px; color: var(--slate); font-size: 0.85rem; }
+  .empty { display: none; padding: 40px 0; color: var(--slate); font-family: var(--f-mono); font-size: 0.85rem; }
+  @media (max-width: 900px){ .proj-grid { grid-template-columns: repeat(2,1fr);} }
+  @media (max-width: 560px){ .proj-grid { grid-template-columns: 1fr;} }
+
+  /* ============ PEOPLE / ESOP ============ */
+  .people { background: var(--hero-bg); color: var(--hero-text); border-radius: 6px; overflow: hidden; position: relative; }
+  .people .inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; }
+  .people .txt { padding: clamp(36px,5vw,64px); }
+  .people .eyebrow { color: var(--accent); }
+  .people h2 { font-size: var(--step-3); margin: 18px 0 0; }
+  .people p { color: rgba(236,235,230,0.76); margin-top: 20px; max-width: 44ch; font-size: 1.05rem; }
+  .people .esop { margin-top: 30px; display: flex; gap: 34px; flex-wrap: wrap; }
+  .people .esop b { font-family: var(--f-display); font-size: 2.4rem; display: block; line-height: 1; letter-spacing: -0.03em; }
+  .people .esop span { font-family: var(--f-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(236,235,230,0.55); }
+  .people .art { position: relative; min-height: 320px; background:
+      repeating-linear-gradient(135deg, rgba(189,91,51,0.16) 0 2px, transparent 2px 22px),
+      radial-gradient(120% 120% at 100% 0%, rgba(189,91,51,0.34), transparent 55%),
+      #1e2126; }
+  .people .art .badge { position: absolute; inset: 0; display: grid; place-items: center; }
+  .people .art .badge b { font-family: var(--f-display); font-size: clamp(3rem,7vw,5.4rem); font-weight: 800; letter-spacing: -0.04em; color: var(--hero-text); }
+  .people .art .badge small { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: block; text-align: center; margin-top: 6px; }
+  @media (max-width: 820px){ .people .inner { grid-template-columns: 1fr;} .people .art { min-height: 200px; } }
+
+  /* ============ RESOURCES ============ */
+  .res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .res { border-top: 2px solid var(--ink); padding-top: 18px; }
+  .res .k { font-family: var(--f-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); }
+  .res h3 { font-size: 1.2rem; margin-top: 12px; letter-spacing: -0.02em; }
+  .res p { color: var(--slate); font-size: 0.92rem; margin-top: 10px; }
+  .res .rd { margin-top: 14px; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); display: inline-flex; gap: 8px; }
+  .res:hover .rd { color: var(--accent); }
+  @media (max-width: 820px){ .res-grid { grid-template-columns: 1fr;} }
+
+  /* ============ FAQ ============ */
+  .faq { border-top: 1px solid var(--line-strong); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; padding: 24px 0; display: flex; gap: 20px; align-items: center; font-family: var(--f-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.02em; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .q { font-family: var(--f-mono); font-size: 0.8rem; color: var(--accent); font-weight: 500; flex: none; width: 42px; }
+  .faq summary .pm { margin-left: auto; flex: none; width: 22px; height: 22px; position: relative; }
+  .faq summary .pm::before, .faq summary .pm::after { content:""; position:absolute; inset:50% 0 auto 0; height:1.5px; background: var(--ink); transition: transform .2s ease; }
+  .faq summary .pm::after { transform: rotate(90deg); }
+  .faq details[open] summary .pm::after { transform: rotate(0); }
+  .faq .a { padding: 0 0 26px 62px; color: var(--slate); max-width: 68ch; font-size: 1.02rem; }
+  @media (max-width: 560px){ .faq .a { padding-left: 0; } }
+
+  /* ============ CTA ============ */
+  .cta-band { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .cta-card { background: var(--card); padding: clamp(36px,5vw,60px); }
+  .cta-card:nth-child(2) { background: var(--hero-bg); color: var(--hero-text); }
+  .cta-card .eyebrow { color: var(--accent); }
+  .cta-card h3 { font-size: var(--step-2); margin: 16px 0 22px; }
+  .cta-card p { color: var(--slate); margin-bottom: 26px; max-width: 38ch; }
+  .cta-card:nth-child(2) p { color: rgba(236,235,230,0.72); }
+  @media (max-width: 720px){ .cta-band { grid-template-columns: 1fr; } }
+
+  /* ============ FOOTER ============ */
+  footer.site { background: var(--hero-bg); color: var(--hero-text); padding-block: clamp(52px,7vw,84px) 34px; }
+  .foot-top { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; }
+  .foot-brand .brand { color: var(--hero-text); }
+  .foot-brand p { color: rgba(236,235,230,0.6); margin-top: 16px; max-width: 32ch; font-size: 0.92rem; }
+  .foot-col h4 { font-family: var(--f-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 500; margin-bottom: 14px; }
+  .foot-col a { display: block; color: rgba(236,235,230,0.72); padding: 5px 0; font-size: 0.9rem; }
+  .foot-col a:hover { color: var(--hero-text); }
+  .foot-bot { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; margin-top: clamp(40px,6vw,64px); padding-top: 24px; border-top: 1px solid var(--hero-line); }
+  .foot-bot .legal { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.04em; color: rgba(236,235,230,0.5); }
+  .foot-bot .legal a:hover { color: var(--hero-text); }
+  .social { display: flex; gap: 10px; }
+  .social a { width: 34px; height: 34px; border: 1px solid var(--hero-line); border-radius: 2px; display: grid; place-items: center; font-family: var(--f-mono); font-size: 0.7rem; color: rgba(236,235,230,0.7); }
+  .social a:hover { border-color: var(--accent); color: var(--accent); }
+  .disclaimer { margin-top: 22px; font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.05em; color: rgba(236,235,230,0.34); max-width: 70ch; line-height: 1.7; }
+  @media (max-width: 860px){ .foot-top { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .foot-top { grid-template-columns: 1fr; } }
+</style>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="topnav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Meridian Interior Group home">
+      <span class="dot" aria-hidden="true"></span>MERIDIAN <small>Interior&nbsp;Group</small>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="item"><a class="top" href="#services">Services</a></div>
+      <div class="item"><a class="top" href="#locations">Locations</a></div>
+      <div class="item"><a class="top" href="#projects">Projects</a></div>
+      <div class="item">
+        <button class="top" aria-haspopup="true">About <span class="caret" aria-hidden="true"></span></button>
+        <div class="menu" role="menu">
+          <a href="#people" role="menuitem">Who We Are</a>
+          <a href="#people" role="menuitem">Employee Ownership</a>
+          <a href="#resources" role="menuitem">News &amp; Insights</a>
+          <a href="#locations" role="menuitem">Community</a>
+          <a href="#contact" role="menuitem">Subcontractors</a>
+        </div>
+      </div>
+      <div class="item">
+        <button class="top" aria-haspopup="true">Careers <span class="caret" aria-hidden="true"></span></button>
+        <div class="menu" role="menu">
+          <a href="#careers" role="menuitem">Open Roles</a>
+          <a href="#careers" role="menuitem">Internships</a>
+          <a href="#people" role="menuitem">Life as an Owner</a>
+        </div>
+      </div>
+      <div class="item"><a class="top" href="#resources">Resources</a></div>
+    </nav>
+    <div class="nav-cta">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle color theme" title="Toggle theme">◐</button>
+      <a class="btn btn--primary" href="#contact">Contact Us</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <div id="mnav">
+    <a href="#services">Services</a>
+    <a href="#locations">Locations</a>
+    <a href="#projects">Projects</a>
+    <a href="#people">About</a>
+    <a href="#careers">Careers</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <canvas id="meridian" aria-hidden="true"></canvas>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">100% Employee-Owned Since 2011</span>
+      <h1>Built around <em>people</em>, engineered for scale.</h1>
+      <p class="hero-sub">Meridian Interior Group delivers complex commercial interiors — the offices, labs, and clinical spaces where the work of ambitious organizations actually happens.</p>
+      <div class="hero-cta">
+        <a class="btn btn--primary" href="#contact">Build Your Project <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn--onink" href="#careers">Build Your Career <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="hero-coords" aria-hidden="true">
+      <div class="wrap">
+        <span>EST. <b>2001</b> — Denver, CO</span>
+        <span>7 Offices · 4 States</span>
+        <span>Interiors at <b>scale</b></span>
+        <span>Prime Meridian · <b>0°</b> orientation to the client</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STAT BAND ============ -->
+  <section class="stats" aria-label="Company by the numbers">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat"><div class="num"><span class="u">$</span>640<span class="u">M</span></div><div class="lbl">Annual Revenue</div></div>
+        <div class="stat"><div class="num"><span class="u">$</span>250<span class="u">M</span></div><div class="lbl">Bonding Capacity</div></div>
+        <div class="stat"><div class="num">0.58</div><div class="lbl">EMR Safety Rating</div></div>
+        <div class="stat"><div class="num">61<span class="u">%</span></div><div class="lbl">Workforce Diversity</div></div>
+        <div class="stat"><div class="num">100<span class="u">%</span></div><div class="lbl">Employee-Owned</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="eyebrow">What We Build</span>
+          <h2>Five sectors. One standard of craft.</h2>
+        </div>
+        <p class="lede">From base-building renovations to validated cleanrooms, we turn ordinary square footage into environments that perform.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <article class="svc">
+          <span class="idx">01 / Office</span>
+          <svg class="glyph" viewBox="0 0 120 84" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><rect x="10" y="20" width="42" height="54"/><rect x="60" y="8" width="50" height="66"/><line x1="20" y1="34" x2="42" y2="34"/><line x1="20" y1="48" x2="42" y2="48"/><line x1="72" y1="24" x2="98" y2="24"/><line x1="72" y1="40" x2="98" y2="40"/><line x1="72" y1="56" x2="98" y2="56"/></svg>
+          <h3>Commercial Office</h3>
+          <p>Headquarters, corporate campuses, and creative workplaces for tech, finance, and professional services.</p>
+          <span class="more">Explore →</span>
+        </article>
+        <article class="svc">
+          <span class="idx">02 / Science</span>
+          <svg class="glyph" viewBox="0 0 120 84" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M46 12v22L28 68a6 6 0 0 0 5 10h54a6 6 0 0 0 5-10L74 34V12"/><line x1="40" y1="12" x2="80" y2="12"/><circle cx="52" cy="60" r="3"/><circle cx="66" cy="52" r="2"/></svg>
+          <h3>Science &amp; Technology</h3>
+          <p>R&amp;D suites, GMP and pharmaceutical space, dry labs, and cleanrooms built to validation.</p>
+          <span class="more">Explore →</span>
+        </article>
+        <article class="svc">
+          <span class="idx">03 / Health</span>
+          <svg class="glyph" viewBox="0 0 120 84" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><rect x="24" y="14" width="72" height="56" rx="4"/><line x1="60" y1="30" x2="60" y2="54"/><line x1="48" y1="42" x2="72" y2="42"/><line x1="24" y1="24" x2="14" y2="24"/><line x1="24" y1="60" x2="14" y2="60"/></svg>
+          <h3>Healthcare</h3>
+          <p>Medical and dental offices, behavioral health, imaging, and outpatient clinical environments.</p>
+          <span class="more">Explore →</span>
+        </article>
+        <article class="svc">
+          <span class="idx">04 / Hospitality</span>
+          <svg class="glyph" viewBox="0 0 120 84" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M18 70V30l42-16 42 16v40"/><rect x="40" y="46" width="16" height="24"/><rect x="64" y="46" width="16" height="24"/><line x1="18" y1="70" x2="102" y2="70"/></svg>
+          <h3>Hospitality</h3>
+          <p>Hotel renovations, restaurants, entertainment venues, and premium building amenities.</p>
+          <span class="more">Explore →</span>
+        </article>
+        <article class="svc">
+          <span class="idx">05 / Industrial</span>
+          <svg class="glyph" viewBox="0 0 120 84" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M14 72V40l24 14V40l24 14V22l44 0v50z"/><line x1="82" y1="34" x2="102" y2="34"/><line x1="82" y1="48" x2="102" y2="48"/><line x1="82" y1="62" x2="102" y2="62"/></svg>
+          <h3>Industrial &amp; Manufacturing</h3>
+          <p>Warehouses, processing and food &amp; beverage facilities, and advanced manufacturing floors.</p>
+          <span class="more">Explore →</span>
+        </article>
+        <article class="svc" style="background:var(--paper-2)">
+          <span class="idx">— / Approach</span>
+          <div style="height:84px"></div>
+          <h3>Not sure where you fit?</h3>
+          <p>Bring us in early. Preconstruction planning is where budget and schedule are really won.</p>
+          <a class="more" href="#contact">Talk to a builder →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATIONS ============ -->
+  <section class="sec" id="locations" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="eyebrow">Local Roots, Expanded Reach</span>
+          <h2>Seven offices across the Mountain West and beyond.</h2>
+        </div>
+        <p class="lede">Every project is delivered by a local team that knows the jurisdictions, the trades, and the ground.</p>
+      </div>
+      <div class="loc-grid reveal">
+        <div class="loc hq">
+          <span class="tag">Headquarters</span>
+          <h3>Denver</h3>
+          <span class="coord">39.7392° N // 104.9903° W</span>
+          <div class="addr">1401 Wynkoop Street, Suite 400<br>Denver, CO 80202</div>
+          <div class="tel">303 · 555 · 0142</div>
+        </div>
+        <div class="loc">
+          <h3>Austin</h3>
+          <span class="coord">30.2672° N // 97.7431° W</span>
+          <div class="addr">600 Congress Avenue, Suite 1200<br>Austin, TX 78701</div>
+          <div class="tel">512 · 555 · 0188</div>
+        </div>
+        <div class="loc">
+          <h3>Phoenix</h3>
+          <span class="coord">33.4484° N // 112.0740° W</span>
+          <div class="addr">2 N Central Ave, Suite 1800<br>Phoenix, AZ 85004</div>
+          <div class="tel">602 · 555 · 0119</div>
+        </div>
+        <div class="loc">
+          <h3>Portland</h3>
+          <span class="coord">45.5152° N // 122.6784° W</span>
+          <div class="addr">1120 NW Couch Street, Suite 500<br>Portland, OR 97209</div>
+          <div class="tel">503 · 555 · 0176</div>
+        </div>
+        <div class="loc">
+          <h3>Salt Lake City</h3>
+          <span class="coord">40.7608° N // 111.8910° W</span>
+          <div class="addr">201 S Main Street, Suite 900<br>Salt Lake City, UT 84111</div>
+          <div class="tel">801 · 555 · 0133</div>
+        </div>
+        <div class="loc">
+          <h3>Nashville</h3>
+          <span class="coord">36.1627° N // 86.7816° W</span>
+          <div class="addr">424 Church Street, Suite 2000<br>Nashville, TN 37219</div>
+          <div class="tel">615 · 555 · 0155</div>
+        </div>
+        <div class="loc">
+          <h3>Boise</h3>
+          <span class="coord">43.6150° N // 116.2023° W</span>
+          <div class="addr">877 W Main Street, Suite 600<br>Boise, ID 83702</div>
+          <div class="tel">208 · 555 · 0167</div>
+        </div>
+        <div class="loc" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;background:transparent;border-style:dashed;">
+          <h3 style="font-size:1.1rem">National reach when the project needs it.</h3>
+          <a class="more" href="#contact" style="font-family:var(--f-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)">Start a conversation →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PORTFOLIO ============ -->
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="eyebrow">Selected Work</span>
+          <h2>Difficult work, made to look easy.</h2>
+        </div>
+        <p class="lede">Filter the portfolio by region and sector. A representative slice of what we build.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filter projects">
+        <div class="grp">
+          <span class="glabel">Region</span>
+          <button class="chip" data-type="region" data-val="all" aria-pressed="true">All</button>
+          <button class="chip" data-type="region" data-val="mountain">Mountain West</button>
+          <button class="chip" data-type="region" data-val="southwest">Southwest</button>
+          <button class="chip" data-type="region" data-val="pacific">Pacific NW</button>
+        </div>
+        <div class="sep" aria-hidden="true"></div>
+        <div class="grp">
+          <span class="glabel">Sector</span>
+          <button class="chip" data-type="sector" data-val="all" aria-pressed="true">All</button>
+          <button class="chip" data-type="sector" data-val="office">Office</button>
+          <button class="chip" data-type="sector" data-val="science">Life Science</button>
+          <button class="chip" data-type="sector" data-val="health">Healthcare</button>
+          <button class="chip" data-type="sector" data-val="hospitality">Hospitality</button>
+        </div>
+      </div>
+
+      <div class="proj-grid reveal" id="projGrid">
+        <!-- projects injected by JS with generated blueprint thumbnails -->
+      </div>
+      <p class="empty" id="emptyMsg">// No projects match that combination — try a broader filter.</p>
+    </div>
+  </section>
+
+  <!-- ============ PEOPLE / ESOP ============ -->
+  <section class="sec" id="people">
+    <div class="wrap">
+      <div class="people reveal">
+        <div class="inner">
+          <div class="txt">
+            <span class="eyebrow">People First</span>
+            <h2>When everyone owns it, everyone builds better.</h2>
+            <p>In 2011 we became 100% employee-owned. Every builder, estimator, and project engineer holds a stake — funded entirely by the company. It changes how we show up on site, and how we treat the people we build for.</p>
+            <div class="esop">
+              <div><b>100%</b><span>Employee-Owned</span></div>
+              <div><b>640+</b><span>Owner-Employees</span></div>
+              <div><b>0 ¢</b><span>Cost to Enroll</span></div>
+            </div>
+          </div>
+          <div class="art" aria-hidden="true">
+            <div class="badge"><div><b>ESOP</b><small>Building · Better · Together</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESOURCES ============ -->
+  <section class="sec" id="resources" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="eyebrow">Insights &amp; Resources</span>
+          <h2>Field notes from the interiors business.</h2>
+        </div>
+        <p class="lede">Practical thinking on cost, schedule, and building smarter — from the people doing the work.</p>
+      </div>
+      <div class="res-grid reveal">
+        <article class="res">
+          <span class="k">Cost Strategy</span>
+          <h3>Turning value engineering into value creation</h3>
+          <p>Cutting scope isn't the only lever. Five ways we protect the design intent while protecting the budget.</p>
+          <a class="rd" href="#">Read →</a>
+        </article>
+        <article class="res">
+          <span class="k">Renovation</span>
+          <h3>How to renovate an occupied office without stopping the business</h3>
+          <p>Phasing, off-hours sequencing, and dust control tactics for keeping a workplace running mid-build.</p>
+          <a class="rd" href="#">Read →</a>
+        </article>
+        <article class="res">
+          <span class="k">Preconstruction</span>
+          <h3>Why early GC onboarding pays for itself</h3>
+          <p>The budget and schedule are mostly decided before a shovel moves. Here's where an early builder earns their keep.</p>
+          <a class="rd" href="#">Read →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="sec" id="faq">
+    <div class="wrap" style="max-width:900px">
+      <div class="sec-head reveal" style="grid-template-columns:1fr">
+        <div>
+          <span class="eyebrow">Frequently Asked</span>
+          <h2>Questions we hear early.</h2>
+        </div>
+      </div>
+      <div class="faq reveal">
+        <details open><summary><span class="q">Q1</span>When should we bring a general contractor into the project?<span class="pm" aria-hidden="true"></span></summary><div class="a">As early as possible — ideally during design. Preconstruction is where budget, constructability, and schedule risk are actually managed. Bringing us in at the drawing stage almost always costs less than fixing surprises during construction.</div></details>
+        <details><summary><span class="q">Q2</span>What size projects does Meridian take on?<span class="pm" aria-hidden="true"></span></summary><div class="a">We specialize in commercial interiors at scale — from focused tenant improvements to multi-floor headquarters and technically complex lab and healthcare builds. If it's an interior environment that has to perform, it's in our wheelhouse.</div></details>
+        <details><summary><span class="q">Q3</span>Do you self-perform any of the work?<span class="pm" aria-hidden="true"></span></summary><div class="a">We self-perform select scopes where it protects quality and schedule, and partner with a vetted network of specialty subcontractors for the rest. Every trade partner is held to the same safety and craft standard we hold ourselves to.</div></details>
+        <details><summary><span class="q">Q4</span>Which industries do you focus on?<span class="pm" aria-hidden="true"></span></summary><div class="a">Five core sectors: commercial office, science &amp; technology, healthcare, hospitality, and industrial &amp; manufacturing. Deep repetition in these markets is exactly what lets us move quickly on complex work.</div></details>
+        <details><summary><span class="q">Q5</span>What does being employee-owned mean for my project?<span class="pm" aria-hidden="true"></span></summary><div class="a">The person managing your job is an owner of the company, not just an employee of it. That shows up as transparency on budget, accountability on schedule, and a long-term view of the relationship rather than a single transaction.</div></details>
+        <details><summary><span class="q">Q6</span>How do subcontractors get on your bid list?<span class="pm" aria-hidden="true"></span></summary><div class="a">We're always expanding our trade partner network. Reach out through the contact section below and our preconstruction team will get you into our prequalification process.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div class="cta-card">
+          <span class="eyebrow">For Clients</span>
+          <h3>Have a space that needs to perform?</h3>
+          <p>Tell us about the project. We'll bring the right local team to the table and start with the hard questions.</p>
+          <a class="btn btn--primary" href="mailto:build@meridianinterior.example">Build Your Project <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+        <div class="cta-card" id="careers">
+          <span class="eyebrow">For Builders</span>
+          <h3>Want to own the work you do?</h3>
+          <p>We're hiring across all seven offices — operations, preconstruction, and finance. Come build as an owner.</p>
+          <a class="btn btn--onink" href="#careers">Build Your Career <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>MERIDIAN <small>Interior&nbsp;Group</small></a>
+        <p>100% employee-owned commercial interior construction. Built around people since 2001.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Build</h4>
+        <a href="#services">Commercial Office</a>
+        <a href="#services">Science &amp; Technology</a>
+        <a href="#services">Healthcare</a>
+        <a href="#services">Hospitality</a>
+        <a href="#services">Industrial</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#people">Who We Are</a>
+        <a href="#people">Employee Ownership</a>
+        <a href="#projects">Projects</a>
+        <a href="#resources">Insights</a>
+      </div>
+      <div class="foot-col">
+        <h4>Offices</h4>
+        <a href="#locations">Denver</a>
+        <a href="#locations">Austin</a>
+        <a href="#locations">Phoenix</a>
+        <a href="#locations">Portland · SLC · Nashville · Boise</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="#careers">Careers</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Subcontractors</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div class="social" aria-label="Social links">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="LinkedIn">IN</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="X">X</a>
+      </div>
+      <div class="legal">
+        <span>© 2026 Meridian Interior Group</span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+    <p class="disclaimer">// This is a fictional demonstration site. Meridian Interior Group, its people, projects, statistics, addresses, and phone numbers are entirely invented for design purposes and do not represent any real company. Layout and UI patterns are an original reinterpretation, not a copy of any live website.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Theme toggle ---- */
+  var root = document.documentElement, tbtn = document.getElementById("themeBtn");
+  tbtn.addEventListener("click", function () {
+    var cur = root.getAttribute("data-theme");
+    if (!cur) cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
+  });
+
+  /* ---- Mobile nav ---- */
+  var burger = document.getElementById("burger"), mnav = document.getElementById("mnav");
+  burger.addEventListener("click", function () {
+    var open = mnav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  mnav.addEventListener("click", function (e) { if (e.target.tagName === "A") { mnav.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); } });
+
+  /* ---- Reveal on scroll ---- */
+  var revs = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    revs.forEach(function (e) { e.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    revs.forEach(function (e) { io.observe(e); });
+  }
+
+  /* ---- Portfolio data + blueprint thumbnails ---- */
+  var projects = [
+    { name: "Northwind Labs — R&D Campus", region: "mountain", sector: "science", place: "Boulder, CO", tags: "Cleanrooms · 120,000 SF" },
+    { name: "Cascade Systems HQ", region: "pacific", sector: "office", place: "Portland, OR", tags: "Headquarters · 8 Floors" },
+    { name: "Trailhead Bio Manufacturing", region: "mountain", sector: "science", place: "Salt Lake City, UT", tags: "GMP · Process Piping" },
+    { name: "Summit Legal Partners", region: "southwest", sector: "office", place: "Phoenix, AZ", tags: "Law · Custom Millwork" },
+    { name: "Copperfield Health Clinic", region: "mountain", sector: "health", place: "Denver, CO", tags: "Outpatient · Imaging" },
+    { name: "The Halcyon Hotel Renovation", region: "mountain", sector: "hospitality", place: "Denver, CO", tags: "Hospitality · Occupied" },
+    { name: "Rincon Capital Offices", region: "southwest", sector: "office", place: "Austin, TX", tags: "Finance · Trading Floor" },
+    { name: "Willamette Dental Group", region: "pacific", sector: "health", place: "Portland, OR", tags: "Multi-Site · Rollout" },
+    { name: "Sonora Neuroscience Suite", region: "southwest", sector: "science", place: "Tucson, AZ", tags: "Dry Lab · Vivarium" }
+  ];
+  var palettes = [
+    ["#1f2933","#3a4a57"], ["#2a2320","#4a3a2c"], ["#1e2a2a","#2f4747"],
+    ["#26232e","#403a52"], ["#2a2422","#4a3630"], ["#20262b","#374651"]
+  ];
+  function thumbSVG(seed) {
+    var p = palettes[seed % palettes.length];
+    var g = 'grad' + seed;
+    var lines = '';
+    for (var i = 1; i < 9; i++) { var x = i * 12.5; lines += '<line x1="'+x+'" y1="0" x2="'+x+'" y2="75" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>'; }
+    for (var j = 1; j < 6; j++) { var y = j * 12.5; lines += '<line x1="0" y1="'+y+'" x2="100" y2="'+y+'" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>'; }
+    // a pseudo floor-plan footprint
+    var fx = 14 + (seed*7 % 18), fy = 14 + (seed*5 % 12), fw = 46 + (seed*3 % 20), fh = 30 + (seed*4 % 14);
+    var plan = '<rect x="'+fx+'" y="'+fy+'" width="'+fw+'" height="'+fh+'" fill="none" stroke="#BD5B33" stroke-width="0.8"/>'+
+               '<line x1="'+fx+'" y1="'+(fy+fh*0.55)+'" x2="'+(fx+fw)+'" y2="'+(fy+fh*0.55)+'" stroke="#BD5B33" stroke-width="0.5" opacity="0.8"/>'+
+               '<line x1="'+(fx+fw*0.5)+'" y1="'+fy+'" x2="'+(fx+fw*0.5)+'" y2="'+(fy+fh)+'" stroke="#BD5B33" stroke-width="0.5" opacity="0.8"/>'+
+               '<circle cx="'+(fx+fw)+'" cy="'+(fy+fh*0.55)+'" r="1.6" fill="#BD5B33"/>';
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 75" preserveAspectRatio="xMidYMid slice">'+
+      '<defs><linearGradient id="'+g+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient></defs>'+
+      '<rect width="100" height="75" fill="url(#'+g+')"/>'+ lines + plan + '</svg>';
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+  }
+
+  var grid = document.getElementById("projGrid");
+  var frag = document.createDocumentFragment();
+  projects.forEach(function (pr, i) {
+    var el = document.createElement("article");
+    el.className = "proj";
+    el.setAttribute("data-region", pr.region);
+    el.setAttribute("data-sector", pr.sector);
+    el.innerHTML =
+      '<div class="thumb"><img loading="lazy" alt="'+pr.name+' — schematic" src="'+thumbSVG(i)+'"></div>'+
+      '<div class="meta"><span class="region">'+pr.place+'</span><h3>'+pr.name+'</h3><div class="tags">'+pr.tags+'</div></div>';
+    frag.appendChild(el);
+  });
+  grid.appendChild(frag);
+
+  /* ---- Filtering ---- */
+  var state = { region: "all", sector: "all" };
+  var chips = document.querySelectorAll(".chip");
+  var empty = document.getElementById("emptyMsg");
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () {
+      var t = c.getAttribute("data-type");
+      state[t] = c.getAttribute("data-val");
+      chips.forEach(function (o) { if (o.getAttribute("data-type") === t) o.setAttribute("aria-pressed", o === c ? "true" : "false"); });
+      applyFilter();
+    });
+  });
+  function applyFilter() {
+    var shown = 0;
+    document.querySelectorAll(".proj").forEach(function (p) {
+      var okR = state.region === "all" || p.getAttribute("data-region") === state.region;
+      var okS = state.sector === "all" || p.getAttribute("data-sector") === state.sector;
+      var ok = okR && okS;
+      p.classList.toggle("hide", !ok);
+      if (ok) shown++;
+    });
+    empty.style.display = shown ? "none" : "block";
+  }
+
+  /* ---- Hero meridian canvas ---- */
+  var cv = document.getElementById("meridian");
+  if (cv && cv.getContext) {
+    var ctx = cv.getContext("2d"), w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), t = 0, raf;
+    var accent = "189,91,51";
+    function size() {
+      var r = cv.getBoundingClientRect(); w = r.width; h = r.height;
+      cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    var arcs = [];
+    for (var i = 0; i < 5; i++) arcs.push({ r: 0.3 + i * 0.22, off: Math.random() * Math.PI * 2, sp: 0.0006 + i * 0.0002 });
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      var cx = w * 0.72, cy = h * 0.32;
+      arcs.forEach(function (a, i) {
+        var rr = a.r * Math.max(w, h) * 0.6;
+        ctx.beginPath();
+        ctx.strokeStyle = "rgba(" + accent + "," + (0.05 + (i === 2 ? 0.05 : 0)) + ")";
+        ctx.lineWidth = i === 2 ? 1.2 : 0.7;
+        ctx.arc(cx, cy, rr, a.off + t * a.sp, a.off + t * a.sp + Math.PI * 1.4);
+        ctx.stroke();
+      });
+      // a slow-drifting meridian (vertical) marker
+      var mx = cx + Math.sin(t * 0.0004) * 40;
+      ctx.beginPath();
+      ctx.strokeStyle = "rgba(" + accent + ",0.12)";
+      ctx.lineWidth = 1;
+      ctx.moveTo(mx, 0); ctx.lineTo(mx, h); ctx.stroke();
+      t += 1; raf = requestAnimationFrame(draw);
+    }
+    size();
+    window.addEventListener("resize", size);
+    if (!reduce) draw();
+    else { // static single frame
+      var cx2 = w*0.72, cy2 = h*0.32;
+      arcs.forEach(function(a,i){ ctx.beginPath(); ctx.strokeStyle="rgba("+accent+",0.06)"; ctx.lineWidth=0.8; ctx.arc(cx2,cy2,a.r*Math.max(w,h)*0.6,a.off,a.off+Math.PI*1.4); ctx.stroke(); });
+    }
+  }
+
+  /* ---- Condensing nav shadow ---- */
+  var nav = document.getElementById("topnav");
+  var onScroll = function () { nav.style.boxShadow = window.scrollY > 12 ? "0 10px 30px -18px rgba(0,0,0,0.35)" : "none"; };
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+})();
+</script>
