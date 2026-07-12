@@ -232,22 +232,20 @@
       if (nextBtn) nextBtn.disabled = (i >= total - 1);
       if (status) status.textContent = (i + 1) + " of " + total;
     }
+    var PAD = 18;   /* matches .svc-track scroll-padding-left */
     function currentIndex() {
-      /* the first/last cards can never sit dead-centre, so pin them at the scroll extremes */
       var maxScroll = track.scrollWidth - track.clientWidth;
-      if (track.scrollLeft <= 2) return 0;
-      if (track.scrollLeft >= maxScroll - 2) return cards.length - 1;
-      var center = track.scrollLeft + track.clientWidth / 2, best = 0, bestDist = Infinity;
+      if (track.scrollLeft >= maxScroll - 2) return cards.length - 1;   /* last card can't left-align fully */
+      var sl = track.scrollLeft + PAD, best = 0, bestDist = Infinity;
       for (var i = 0; i < cards.length; i++) {
-        var cc = cards[i].offsetLeft + cards[i].offsetWidth / 2, dist = Math.abs(cc - center);
+        var dist = Math.abs(cards[i].offsetLeft - sl);
         if (dist < bestDist) { bestDist = dist; best = i; }
       }
       return best;
     }
     function goTo(i) {
       i = Math.max(0, Math.min(i, cards.length - 1));
-      var c = cards[i];
-      track.scrollTo({ left: c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2, behavior: reduce ? "auto" : "smooth" });
+      track.scrollTo({ left: Math.max(0, cards[i].offsetLeft - PAD), behavior: reduce ? "auto" : "smooth" });
     }
 
     var ticking;
