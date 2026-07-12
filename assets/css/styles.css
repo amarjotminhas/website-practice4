@@ -470,6 +470,26 @@ footer.site { background: var(--hero-bg); color: var(--hero-text); padding-block
 .people .art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,24,27,0.35), rgba(22,24,27,0.72)); z-index: 1; }
 .people .art .badge { z-index: 2; }
 
+/* Blue accent appears only on hover for clickable / navigational text */
+a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
+.job .jt, .job .japply, .faq summary, .foot-col a, .foot-bot .legal a { transition: color .15s ease; }
+.nav-links a.top:hover,
+.menu a:hover,
+#mnav a:hover,
+.breadcrumb a:hover,
+.foot-col a:hover,
+.foot-bot .legal a:hover,
+.contact-aside a:hover,
+.social a:hover,
+.faq summary:hover,
+.btn--ghost:hover,
+.svc:hover h3, .svc:hover .more,
+.proj:hover h3,
+.loc:hover h3,
+.res:hover h3, .res:hover .rd,
+.job:hover .jt, .job:hover .japply { color: var(--accent); }
+.social a:hover, .btn--ghost:hover { border-color: var(--accent); }
+
 /* Hero image ambient zoom — 3s in, 3s out, endless loop */
 @keyframes heroZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
 .hero-media img, .phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
