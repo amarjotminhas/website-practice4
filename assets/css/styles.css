@@ -508,7 +508,7 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
   position: relative; z-index: 2; text-align: center;
   margin-top: clamp(-150px, -12vw, -70px); padding-block: 0 clamp(48px, 7vw, 84px);
 }
-.hero--light h1 { margin-inline: auto; max-width: none; color: var(--ink-blue); font-weight: 700; }
+.hero--light h1 { margin-inline: auto; max-width: none; color: var(--ink-blue); font-weight: 400; }
 .hero--light .hero-sub { margin-inline: auto; color: var(--slate); }
 .hero--light .hero-cta { justify-content: center; }
 
