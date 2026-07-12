@@ -288,20 +288,19 @@
   if (pinsWrap) {
     var MW = 959, MH = 593;   /* matches the inline map viewBox */
     var offices = [
-      { city: "Denver", note: "Headquarters — our home office since 2001.", x: 375, y: 235, hq: true, state: "co" },
-      { city: "Portland", note: "Our Pacific Northwest home.", x: 165, y: 72, state: "or" },
-      { city: "Boise", note: "Building across the Boise metro.", x: 240, y: 130, state: "id" },
-      { city: "Salt Lake City", note: "Our Mountain West operations hub.", x: 285, y: 200, state: "ut" },
-      { city: "Phoenix", note: "Projects across the Valley of the Sun.", x: 270, y: 340, state: "az" },
-      { city: "Austin", note: "Serving Central Texas from downtown.", x: 495, y: 428, state: "tx" },
-      { city: "Nashville", note: "Delivering across Middle Tennessee.", x: 660, y: 300, state: "tn" }
+      { city: "Denver", note: "Headquarters — our home office since 2001.", x: 375, y: 235, hq: true },
+      { city: "Portland", note: "Our Pacific Northwest home.", x: 165, y: 72 },
+      { city: "Boise", note: "Building across the Boise metro.", x: 240, y: 130 },
+      { city: "Salt Lake City", note: "Our Mountain West operations hub.", x: 285, y: 200 },
+      { city: "Phoenix", note: "Projects across the Valley of the Sun.", x: 270, y: 340 },
+      { city: "Austin", note: "Serving Central Texas from downtown.", x: 495, y: 428 },
+      { city: "Nashville", note: "Delivering across Middle Tennessee.", x: 660, y: 300 }
     ];
     var closeAll = function () {
       var open = pinsWrap.querySelectorAll(".usmap-pin.open");
       for (var i = 0; i < open.length; i++) open[i].classList.remove("open");
     };
     offices.forEach(function (o) {
-      if (o.state) { var st = document.querySelector(".usmap-svg ." + o.state); if (st) st.classList.add("office-state"); }
       var pin = document.createElement("button");
       pin.type = "button";
       pin.className = "usmap-pin" + (o.hq ? " is-hq" : "");
