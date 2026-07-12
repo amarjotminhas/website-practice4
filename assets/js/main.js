@@ -176,27 +176,6 @@
     });
   }
 
-  /* =============== JOB FILTER (careers) =============== */
-  var jobWrap = document.getElementById("jobList");
-  if (jobWrap) {
-    var jchips = document.querySelectorAll(".jchip");
-    var jempty = document.getElementById("jobEmpty");
-    var jstate = "all";
-    jchips.forEach(function (c) {
-      c.addEventListener("click", function () {
-        jstate = c.getAttribute("data-val");
-        jchips.forEach(function (o) { o.setAttribute("aria-pressed", o === c ? "true" : "false"); });
-        var shown = 0;
-        jobWrap.querySelectorAll(".job").forEach(function (j) {
-          var ok = jstate === "all" || j.getAttribute("data-region") === jstate;
-          j.classList.toggle("hide", !ok);
-          if (ok) shown++;
-        });
-        if (jempty) jempty.style.display = shown ? "none" : "block";
-      });
-    });
-  }
-
   /* =============== HERO CANVAS (home only) =============== */
   var cv = document.getElementById("meridian");
   if (cv && cv.getContext) {

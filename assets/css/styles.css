@@ -393,6 +393,10 @@ header.nav {
 .cta-card p { color: var(--slate); margin-bottom: 26px; max-width: 38ch; }
 .cta-card.dark p { color: rgba(236,235,230,0.72); }
 @media (max-width: 720px){ .cta-band { grid-template-columns: 1fr; } }
+.cta-band--single { grid-template-columns: 1fr; }
+.cta-band--single .cta-card { text-align: center; }
+.cta-band--single .cta-card .eyebrow { justify-content: center; }
+.cta-band--single .cta-card p { margin-inline: auto; }
 
 /* ---------- FORMS ---------- */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }

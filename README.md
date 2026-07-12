@@ -13,15 +13,13 @@ A **fictional**, production-structured marketing website for a made-up 100% empl
 | `projects.html` | Filterable portfolio (region × sector) |
 | `locations.html` | Seven offices + stylized coverage map |
 | `about.html` | Story/timeline, values, employee ownership, leadership, recognition |
-| `careers.html` | Benefits, culture, filterable open roles, internships, hiring process |
-| `resources.html` | Featured post + insights grid + newsletter signup |
 | `contact.html` | Validated multi-field contact form + office details |
 | `404.html` | Custom not-found page |
 
 ## Shared assets
 
 - `assets/css/styles.css` — all design tokens, light/dark themes, and components
-- `assets/js/main.js` — theme toggle (persisted), mobile nav, scroll reveal, portfolio + job filtering, blueprint thumbnail generator, hero canvas, and form validation
+- `assets/js/main.js` — theme toggle (persisted), mobile nav, scroll reveal, portfolio filtering, blueprint thumbnail generator, hero canvas, and form validation
 - `assets/favicon.svg` — meridian/coordinate mark
 - `robots.txt`, `sitemap.xml` — SEO basics
 
@@ -55,10 +53,6 @@ Drop the whole folder onto any static host — Netlify, Vercel, GitHub Pages, Cl
 ### To make it truly production for a real business, you would still:
 1. Replace all fictional copy, names, and figures with real content.
 2. Swap the Unsplash stock photos for licensed real project photography (self-host them under `assets/` for performance and reliability).
-3. Wire the contact/newsletter forms to a backend or form service (e.g. Formspree, Netlify Forms) — currently they validate client-side and show a success state without sending data.
+3. Wire the contact form to a backend or form service (e.g. Formspree, Netlify Forms) — currently it validates client-side and shows a success state without sending data.
 4. Add real legal pages (Privacy Policy, Terms), analytics, and a proper domain.
 5. Generate real Open Graph share images.
-
-## Notes
-
-- `meridian-interior-group.html` in the repo root is the earlier **single-page** version of this site, kept for reference. The multi-page site above supersedes it.
