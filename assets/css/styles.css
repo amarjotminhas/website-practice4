@@ -498,3 +498,47 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 @keyframes heroZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
 .hero-media img, .phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .hero-media img, .phero-media img { animation: none; } }
+
+/* =====================================================================
+   MOBILE OPTIMISATIONS
+   ===================================================================== */
+@media (max-width: 700px) {
+  :root { --sect-y: 54px; }
+
+  /* Hero: tighter, punchier */
+  .hero-inner { padding-block: 54px 40px; }
+  .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .hero-sub { font-size: 1.02rem; margin-top: 20px; }
+  .phero .wrap { padding-block: 44px; }
+  .phero h1 { font-size: clamp(2.1rem, 9vw, 3rem); }
+  .phero .lead, .hero-sub { max-width: none; }
+
+  /* Section heads stack tighter */
+  .sec-head { gap: 10px; margin-bottom: 30px; }
+
+  /* Full-width, easy-to-tap CTAs */
+  .hero-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+  .cta-card .btn { width: 100%; justify-content: center; }
+  form button[type="submit"] { width: 100%; justify-content: center; }
+  .btn { padding: 15px 22px; }
+
+  /* Comfortable reading + no cramped labels */
+  .prose p, .prose li { font-size: 1rem; }
+  .people p { font-size: 1rem; }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  :root { --pad: 16px; }
+  .brand { font-size: 1.14rem; }
+  .brand small { display: none; }            /* keep the wordmark from wrapping */
+  .nav-inner { gap: 12px; }
+  .stat .num { font-size: clamp(1.7rem, 8vw, 2.2rem); }
+  .people .esop { gap: 22px; }
+}
+
+/* Balance the 5-up stat band when it wraps to 2 columns */
+@media (max-width: 860px) {
+  .stat:last-child { grid-column: 1 / -1; }
+}
