@@ -218,18 +218,17 @@ header.nav {
 @media (max-width: 860px){ .stats-grid { grid-template-columns: repeat(2,1fr);} .stat { border-left: 1px solid var(--line); padding: 26px 22px;} .stat:first-child{padding-left:22px;} .stat:nth-child(odd){border-left:0;} }
 
 /* ---------- SERVICES GRID ---------- */
-.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.svc { position: relative; overflow: hidden; min-height: 300px; border-radius: 4px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 32px; color: #fff; }
-.svc-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform .6s ease; }
-.svc::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(34,52,86,0.5), rgba(19,30,56,0.66)); transition: background .25s ease; }
-.svc:hover .svc-bg { transform: scale(1.06); }
-.svc:hover::after { background: linear-gradient(180deg, rgba(30,48,82,0.4), rgba(17,28,52,0.58)); }
-.svc-tile { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-.svc-tile h3 { color: #fff; font-size: clamp(1.5rem, 1.1rem + 2vw, 2.3rem); text-transform: uppercase; line-height: 1.12; }
-.svc-learn { color: #fff; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; padding: 0 6px 10px; border-bottom: 2px solid rgba(255,255,255,0.85); transition: border-color .2s ease; }
-.svc:hover .svc-learn { border-bottom-color: var(--accent); }
-.svc--flat { background: var(--hero-bg); }
-.svc--flat::after { display: none; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.svc { background: var(--card); padding: clamp(24px,3vw,36px); min-height: 260px; display: flex; flex-direction: column; transition: background .2s ease; color: var(--ink); }
+.svc:hover { background: var(--paper); }
+.svc .idx { font-family: var(--f-mono); font-size: 0.72rem; color: var(--slate-2); letter-spacing: 0.1em; }
+.svc .glyph { height: 80px; margin: 8px 0 20px; }
+.svc h3 { font-size: var(--step-1); }
+.svc p { color: var(--slate); margin-top: 12px; font-size: 0.96rem; }
+.svc .more { margin-top: auto; padding-top: 18px; font-family: var(--f-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: inherit; display: inline-flex; gap: 8px; align-items: center; }
+.svc-media { margin: calc(-1 * clamp(24px,3vw,36px)) calc(-1 * clamp(24px,3vw,36px)) 18px; height: 156px; overflow: hidden; position: relative; }
+.svc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.svc:hover .svc-media img { transform: scale(1.05); }
 @media (max-width: 900px){ .svc-grid { grid-template-columns: repeat(2,1fr);} }
 @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr;} }
 
@@ -488,6 +487,7 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 .social a:hover,
 .faq summary:hover,
 .btn--ghost:hover,
+.svc:hover h3, .svc:hover .more,
 .proj:hover h3,
 .loc:hover h3,
 .res:hover h3, .res:hover .rd,
