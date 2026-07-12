@@ -496,6 +496,19 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 .job:hover .jt, .job:hover .japply { color: var(--accent); }
 .social a:hover, .btn--ghost:hover { border-color: var(--accent); }
 
+/* ---------- LIGHT HERO (photo fades into the page background) ---------- */
+.hero--light { background: var(--paper); color: var(--ink); }
+.hero--light .hero-media { position: relative; inset: auto; height: clamp(320px, 58vh, 620px); overflow: hidden; }
+.hero--light .hero-media img { opacity: 1; }
+.hero--light .hero-media::after { background: linear-gradient(180deg, rgba(0,0,0,0) 35%, var(--paper) 96%); }
+.hero--light .hero-inner {
+  position: relative; z-index: 2; text-align: center;
+  margin-top: clamp(-150px, -12vw, -70px); padding-block: 0 clamp(48px, 7vw, 84px);
+}
+.hero--light h1 { margin-inline: auto; }
+.hero--light .hero-sub { margin-inline: auto; color: var(--slate); }
+.hero--light .hero-cta { justify-content: center; }
+
 /* Hero image ambient zoom — 3s in, 3s out, endless loop */
 @keyframes heroZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
 .hero-media img, .phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
