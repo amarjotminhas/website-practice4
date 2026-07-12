@@ -218,9 +218,9 @@ header.nav {
 @media (max-width: 860px){ .stats-grid { grid-template-columns: repeat(2,1fr);} .stat { border-left: 1px solid var(--line); padding: 26px 22px;} .stat:first-child{padding-left:22px;} .stat:nth-child(odd){border-left:0;} }
 
 /* ---------- SERVICES GRID ---------- */
-.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
-.svc { background: var(--card); padding: clamp(24px,3vw,36px); min-height: 260px; display: flex; flex-direction: column; transition: background .2s ease; color: var(--ink); }
-.svc:hover { background: var(--paper); }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.svc { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; padding: clamp(24px,3vw,36px); min-height: 260px; display: flex; flex-direction: column; transition: background .2s ease, border-color .2s ease, transform .2s ease; color: var(--ink); }
+.svc:hover { background: var(--paper); border-color: var(--accent); transform: translateY(-4px); }
 .svc .idx { font-family: var(--f-mono); font-size: 0.72rem; color: var(--slate-2); letter-spacing: 0.1em; }
 .svc .glyph { height: 80px; margin: 8px 0 20px; }
 .svc h3 { font-size: var(--step-1); }
