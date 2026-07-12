@@ -240,7 +240,7 @@ header.nav {
 /* ---------- AREAS OF EXPERTISE — swipeable card carousel ---------- */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .svc-carousel { margin-top: 6px; }
-.svc-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; touch-action: pan-y; position: relative; padding: 4px 2px 8px; cursor: grab; scrollbar-width: none; -ms-overflow-style: none; }
+.svc-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; touch-action: pan-x pan-y; position: relative; padding: 4px 2px 8px; cursor: grab; scrollbar-width: none; -ms-overflow-style: none; }
 .svc-track::-webkit-scrollbar { display: none; }
 .svc-track.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
 .svc-track:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 8px; }
