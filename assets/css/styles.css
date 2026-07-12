@@ -127,8 +127,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .sec--alt { background: var(--paper-2); }
 .sec-head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; margin-bottom: clamp(34px,5vw,58px); }
 .sec-head h2 { font-size: var(--step-3); max-width: 18ch; margin-top: 16px; }
-.sec-label { display: block; text-align: center; font-family: var(--f-display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.02; text-wrap: balance; font-size: clamp(2rem, 5vw, 3.8rem); margin-bottom: clamp(20px, 3vw, 38px); color: var(--ink-blue); -webkit-text-stroke: 2px var(--ink-blue); transform: scaleY(1.18); transform-origin: center bottom; }
+.sec-label { display: block; text-align: center; font-family: var(--f-display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.02; text-wrap: balance; font-size: clamp(2rem, 5vw, 3.8rem); margin-bottom: clamp(20px, 3vw, 38px); color: var(--accent); -webkit-text-stroke: 2px var(--accent); transform: scaleY(1.18); transform-origin: center bottom; }
 .sec-head-wrap .sec-head h2 { font-size: var(--step-2); }
+#services.sec { padding-top: clamp(16px, 2.5vw, 40px); }
 @supports (-webkit-text-stroke: 2px black) { .sec-label { color: transparent; } }
 .sec-head p.lede { color: var(--slate); max-width: 46ch; font-size: var(--step-1); line-height: 1.45; }
 @media (max-width: 720px){ .sec-head { grid-template-columns: 1fr; } }
