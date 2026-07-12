@@ -201,7 +201,7 @@
   var cv = document.getElementById("meridian");
   if (cv && cv.getContext) {
     var ctx = cv.getContext("2d"), w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), t = 0;
-    var accent = "46,150,214";
+    var accent = "236,235,230";
     function size() { var r = cv.getBoundingClientRect(); w = r.width; h = r.height; cv.width = w*dpr; cv.height = h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
     var arcs = [];
     for (var i = 0; i < 5; i++) arcs.push({ r: 0.3 + i*0.22, off: Math.random()*Math.PI*2, sp: 0.0006 + i*0.0002 });
