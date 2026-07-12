@@ -144,13 +144,13 @@ header.nav {
   border-bottom: 1px solid var(--line);
 }
 .nav-inner { display: flex; align-items: center; gap: 26px; height: 88px; }
-.brand { display: flex; align-items: baseline; gap: 10px; font-family: var(--f-display); font-weight: 800; letter-spacing: -0.03em; font-size: 1.46rem; color: var(--ink); }
+.brand { display: flex; align-items: baseline; gap: 10px; font-family: "Oswald", var(--f-display); font-weight: 600; letter-spacing: -0.01em; font-size: 1.5rem; color: var(--ink); }
 .brand .dot { width: 9px; height: 9px; background: var(--accent); border-radius: 50%; align-self: center; }
 .brand-mark { width: 29px; height: 29px; flex: none; align-self: center; }
 .brand-mark .a { stroke: var(--accent); }
 .brand-mark .a2 { fill: var(--accent); }
 .brand-mark .b { stroke: currentColor; opacity: 0.5; }
-.brand small { font-family: var(--f-mono); font-weight: 500; font-size: 0.62rem; letter-spacing: 0.16em; color: var(--slate); text-transform: uppercase; }
+.brand small { font-family: "Oswald", var(--f-display); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.16em; color: var(--slate); text-transform: uppercase; }
 .nav-links { display: flex; align-items: center; gap: 2px; margin-left: auto; }
 .nav-links > .item { position: relative; }
 .nav-links a.top, .nav-links button.top {
