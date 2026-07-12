@@ -469,8 +469,7 @@ footer.site { background: var(--hero-bg); color: var(--hero-text); padding-block
 
 /* ---------- PHOTOGRAPHY LAYERS ---------- */
 .phero-media, .hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-.phero-media img, .hero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-.hero-media img { opacity: 0.4; }
+.phero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
 .phero-media::after, .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,20,23,0.5), rgba(18,20,23,0.86)); }
 .phero .grid-bg, .hero .hero-grid { z-index: 1; }
 .phero .wrap, .hero .hero-inner, .hero .hero-coords { position: relative; z-index: 2; }
@@ -508,7 +507,6 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 /* ---------- LIGHT HERO (photo fades into the page background) ---------- */
 .hero--light { background: var(--paper); color: var(--ink); }
 .hero--light .hero-media { position: relative; inset: auto; height: clamp(320px, 58vh, 620px); overflow: hidden; }
-.hero--light .hero-media img { opacity: 1; }
 .hero--light .hero-media::after { background: linear-gradient(180deg, rgba(0,0,0,0) 35%, var(--paper) 96%); }
 .hero--light .hero-inner {
   position: relative; z-index: 2; text-align: center;
@@ -520,8 +518,21 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 
 /* Hero image ambient zoom — 3s in, 3s out, endless loop */
 @keyframes heroZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
-.hero-media img, .phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
-@media (prefers-reduced-motion: reduce) { .hero-media img, .phero-media img { animation: none; } }
+.phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .phero-media img { animation: none; } }
+
+/* ---------- HERO SLIDESHOW (4 images cross-fade + random Ken-Burns pan) ---------- */
+.hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; will-change: opacity, transform; }
+.hero-slide.is-active { opacity: 1; }
+@keyframes panRight { from { transform: scale(1.12) translateX(-2.5%); } to { transform: scale(1.16) translateX(2.5%); } }
+@keyframes panLeft  { from { transform: scale(1.12) translateX(2.5%); }  to { transform: scale(1.16) translateX(-2.5%); } }
+@keyframes panUp    { from { transform: scale(1.12) translateY(2.5%); }  to { transform: scale(1.16) translateY(-2.5%); } }
+@keyframes panDown  { from { transform: scale(1.12) translateY(-2.5%); } to { transform: scale(1.16) translateY(2.5%); } }
+.hero-slide.pan-right.is-active { animation: panRight 8s ease-out both; }
+.hero-slide.pan-left.is-active  { animation: panLeft 8s ease-out both; }
+.hero-slide.pan-up.is-active    { animation: panUp 8s ease-out both; }
+.hero-slide.pan-down.is-active  { animation: panDown 8s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } .hero-slide.is-active { animation: none; } }
 
 /* =====================================================================
    MOBILE OPTIMISATIONS

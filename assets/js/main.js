@@ -176,6 +176,26 @@
     });
   }
 
+  /* =============== HERO SLIDESHOW (home only) =============== */
+  var slides = document.querySelectorAll(".hero-slide");
+  if (slides.length > 1) {
+    var dirs = ["pan-right", "pan-left", "pan-up", "pan-down"];
+    var randDir = function () { return dirs[Math.floor(Math.random() * dirs.length)]; };
+    var idx = 0;
+    slides[0].classList.add(randDir());
+    if (!reduce) {
+      setInterval(function () {
+        var cur = slides[idx];
+        cur.classList.remove("is-active", "pan-right", "pan-left", "pan-up", "pan-down");
+        idx = (idx + 1) % slides.length;
+        var next = slides[idx];
+        next.classList.add(randDir());
+        void next.offsetWidth;           /* restart the pan animation */
+        next.classList.add("is-active");
+      }, 6000);
+    }
+  }
+
   /* =============== HERO CANVAS (home only) =============== */
   var cv = document.getElementById("meridian");
   if (cv && cv.getContext) {
