@@ -109,10 +109,10 @@
     for (var i = 1; i < 9; i++) { var x = i * 12.5; lines += '<line x1="'+x+'" y1="0" x2="'+x+'" y2="75" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>'; }
     for (var j = 1; j < 6; j++) { var y = j * 12.5; lines += '<line x1="0" y1="'+y+'" x2="100" y2="'+y+'" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>'; }
     var fx = 14 + (seed*7 % 18), fy = 14 + (seed*5 % 12), fw = 46 + (seed*3 % 20), fh = 30 + (seed*4 % 14);
-    var plan = '<rect x="'+fx+'" y="'+fy+'" width="'+fw+'" height="'+fh+'" fill="none" stroke="#BD5B33" stroke-width="0.8"/>'+
-      '<line x1="'+fx+'" y1="'+(fy+fh*0.55)+'" x2="'+(fx+fw)+'" y2="'+(fy+fh*0.55)+'" stroke="#BD5B33" stroke-width="0.5" opacity="0.8"/>'+
-      '<line x1="'+(fx+fw*0.5)+'" y1="'+fy+'" x2="'+(fx+fw*0.5)+'" y2="'+(fy+fh)+'" stroke="#BD5B33" stroke-width="0.5" opacity="0.8"/>'+
-      '<circle cx="'+(fx+fw)+'" cy="'+(fy+fh*0.55)+'" r="1.6" fill="#BD5B33"/>';
+    var plan = '<rect x="'+fx+'" y="'+fy+'" width="'+fw+'" height="'+fh+'" fill="none" stroke="#2E96D6" stroke-width="0.8"/>'+
+      '<line x1="'+fx+'" y1="'+(fy+fh*0.55)+'" x2="'+(fx+fw)+'" y2="'+(fy+fh*0.55)+'" stroke="#2E96D6" stroke-width="0.5" opacity="0.8"/>'+
+      '<line x1="'+(fx+fw*0.5)+'" y1="'+fy+'" x2="'+(fx+fw*0.5)+'" y2="'+(fy+fh)+'" stroke="#2E96D6" stroke-width="0.5" opacity="0.8"/>'+
+      '<circle cx="'+(fx+fw)+'" cy="'+(fy+fh*0.55)+'" r="1.6" fill="#2E96D6"/>';
     var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 75" preserveAspectRatio="xMidYMid slice">'+
       '<defs><linearGradient id="'+g+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient></defs>'+
       '<rect width="100" height="75" fill="url(#'+g+')"/>'+ lines + plan + '</svg>';
@@ -201,7 +201,7 @@
   var cv = document.getElementById("meridian");
   if (cv && cv.getContext) {
     var ctx = cv.getContext("2d"), w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), t = 0;
-    var accent = "189,91,51";
+    var accent = "46,150,214";
     function size() { var r = cv.getBoundingClientRect(); w = r.width; h = r.height; cv.width = w*dpr; cv.height = h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
     var arcs = [];
     for (var i = 0; i < 5; i++) arcs.push({ r: 0.3 + i*0.22, off: Math.random()*Math.PI*2, sp: 0.0006 + i*0.0002 });
