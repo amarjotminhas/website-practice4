@@ -136,10 +136,10 @@ header.nav {
   backdrop-filter: saturate(1.2) blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.nav-inner { display: flex; align-items: center; gap: 26px; height: 68px; }
-.brand { display: flex; align-items: baseline; gap: 9px; font-family: var(--f-display); font-weight: 800; letter-spacing: -0.03em; font-size: 1.28rem; color: var(--ink); }
+.nav-inner { display: flex; align-items: center; gap: 26px; height: 88px; }
+.brand { display: flex; align-items: baseline; gap: 10px; font-family: var(--f-display); font-weight: 800; letter-spacing: -0.03em; font-size: 1.46rem; color: var(--ink); }
 .brand .dot { width: 9px; height: 9px; background: var(--accent); border-radius: 50%; align-self: center; }
-.brand-mark { width: 25px; height: 25px; flex: none; align-self: center; }
+.brand-mark { width: 29px; height: 29px; flex: none; align-self: center; }
 .brand-mark .a { stroke: var(--accent); }
 .brand-mark .a2 { fill: var(--accent); }
 .brand-mark .b { stroke: currentColor; opacity: 0.5; }
@@ -148,7 +148,7 @@ header.nav {
 .nav-links > .item { position: relative; }
 .nav-links a.top, .nav-links button.top {
   font: inherit; background: none; border: 0; cursor: pointer; color: var(--ink);
-  font-size: 0.95rem; font-weight: 500; padding: 10px 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 2px;
+  font-size: 1.02rem; font-weight: 500; padding: 12px 15px; display: inline-flex; align-items: center; gap: 6px; border-radius: 2px;
 }
 .nav-links a.top:hover, .nav-links button.top:hover { color: inherit; }
 .nav-links a.top[aria-current="page"] { color: inherit; }
