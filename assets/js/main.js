@@ -176,6 +176,105 @@
     });
   }
 
+  /* =============== AREAS OF EXPERTISE CAROUSEL (home only) =============== */
+  var track = document.getElementById("svcTrack");
+  if (track && window.migImg) {
+    var areas = [
+      { title: "Commercial Office",          tag: "Office",       image: "1497366216548-37526070297c", href: "services.html#office",       alt: "Open-plan commercial office interior" },
+      { title: "Science &amp; Technology",   tag: "Life Science", image: "1532094349884-543bc11b234d", href: "services.html#science",      alt: "Laboratory and research interior" },
+      { title: "Healthcare",                 tag: "Clinical",     image: "1519494026892-80bbd2d6fd0d", href: "services.html#health",       alt: "Modern healthcare clinic corridor" },
+      { title: "Hospitality",                tag: "Hospitality",  image: "1566073771259-6a8506099945", href: "services.html#hospitality",  alt: "Hospitality guest-room interior" },
+      { title: "Industrial &amp; Manufacturing", tag: "Industrial", image: "1553413077-190dd305871c", href: "services.html#industrial",   alt: "Industrial warehouse interior" }
+    ];
+    var dots = document.getElementById("svcDots");
+    var status = document.getElementById("svcStatus");
+    var total = areas.length;
+
+    var cfrag = document.createDocumentFragment(), dfrag = document.createDocumentFragment();
+    areas.forEach(function (a, i) {
+      var card = document.createElement("a");
+      card.className = "svc-card";
+      card.href = a.href;
+      card.setAttribute("role", "group");
+      card.setAttribute("aria-roledescription", "slide");
+      card.setAttribute("aria-label", (i + 1) + " of " + total + ": " + a.title.replace("&amp;", "&"));
+      card.innerHTML =
+        '<img class="svc-card-img" loading="lazy" alt="' + a.alt + '" src="' + window.migImg(a.image, 900) + '">' +
+        '<span class="svc-card-tag">' + a.tag + '</span>' +
+        '<span class="svc-card-scrim" aria-hidden="true"></span>' +
+        '<h3 class="svc-card-title">' + a.title + '</h3>';
+      cfrag.appendChild(card);
+
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "svc-dot";
+      dot.setAttribute("aria-label", "Go to " + a.title.replace("&amp;", "&"));
+      dot.addEventListener("click", function () { goTo(i); });
+      dfrag.appendChild(dot);
+    });
+    track.appendChild(cfrag);
+    if (dots) dots.appendChild(dfrag);
+
+    var cards = track.querySelectorAll(".svc-card");
+    var dotEls = dots ? dots.querySelectorAll(".svc-dot") : [];
+    var active = -1;
+
+    function setActive(i) {
+      if (i === active) return;
+      active = i;
+      for (var d = 0; d < dotEls.length; d++) {
+        dotEls[d].classList.toggle("is-active", d === i);
+        dotEls[d].setAttribute("aria-current", d === i ? "true" : "false");
+      }
+      if (status) status.textContent = (i + 1) + " of " + total;
+    }
+    function currentIndex() {
+      var center = track.scrollLeft + track.clientWidth / 2, best = 0, bestDist = Infinity;
+      for (var i = 0; i < cards.length; i++) {
+        var cc = cards[i].offsetLeft + cards[i].offsetWidth / 2, dist = Math.abs(cc - center);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      }
+      return best;
+    }
+    function goTo(i) {
+      i = Math.max(0, Math.min(i, cards.length - 1));
+      var c = cards[i];
+      track.scrollTo({ left: c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2, behavior: reduce ? "auto" : "smooth" });
+    }
+
+    var ticking;
+    track.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = requestAnimationFrame(function () { ticking = null; setActive(currentIndex()); });
+    }, { passive: true });
+    setActive(0);
+
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); goTo(active + 1); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); goTo(active - 1); }
+    });
+
+    /* Mouse drag (touch is native via scroll) */
+    var isDown = false, startX = 0, startScroll = 0, moved = false;
+    track.addEventListener("mousedown", function (e) {
+      isDown = true; moved = false; startX = e.pageX; startScroll = track.scrollLeft;
+      track.classList.add("dragging");
+    });
+    window.addEventListener("mousemove", function (e) {
+      if (!isDown) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startScroll - dx;
+    });
+    window.addEventListener("mouseup", function () {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.remove("dragging");
+      if (moved) goTo(currentIndex());
+    });
+    track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); } }, true);
+  }
+
   /* =============== HERO SLIDESHOW (home only) =============== */
   var slides = document.querySelectorAll(".hero-slide");
   if (slides.length > 1) {

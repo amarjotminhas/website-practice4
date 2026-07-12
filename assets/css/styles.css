@@ -237,6 +237,28 @@ header.nav {
 .svc-media { margin: calc(-1 * clamp(24px,3vw,36px)) calc(-1 * clamp(24px,3vw,36px)) 18px; height: 156px; overflow: hidden; position: relative; }
 .svc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .svc:hover .svc-media img { transform: scale(1.05); }
+/* ---------- AREAS OF EXPERTISE — swipeable card carousel ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.svc-carousel { margin-top: 6px; }
+.svc-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; touch-action: pan-y; position: relative; padding: 4px 2px 8px; cursor: grab; scrollbar-width: none; -ms-overflow-style: none; }
+.svc-track::-webkit-scrollbar { display: none; }
+.svc-track.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.svc-track:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 8px; }
+.svc-card { flex: 0 0 82%; scroll-snap-align: center; position: relative; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; background: var(--hero-bg); color: #fff; text-decoration: none; }
+@media (min-width: 640px) { .svc-card { flex-basis: 46%; } }
+@media (min-width: 1000px) { .svc-card { flex-basis: 31.5%; } }
+.svc-card-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.svc-card:hover .svc-card-img { transform: scale(1.05); }
+.svc-card-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,16,30,0.88) 0%, rgba(11,16,30,0.4) 34%, rgba(11,16,30,0) 62%); }
+.svc-card-tag { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--f-mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,0.4); padding: 6px 11px; border-radius: 40px; }
+.svc-card-title { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 2; color: #fff; font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(1.35rem, 1.1rem + 1vw, 1.7rem); line-height: 1.08; }
+.svc-card:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.svc-dots { display: flex; justify-content: center; gap: 10px; margin-top: 24px; }
+.svc-dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: var(--line-strong); cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.svc-dot:hover { background: var(--slate); }
+.svc-dot.is-active { background: var(--accent); transform: scale(1.3); }
+@media (prefers-reduced-motion: reduce) { .svc-card-img { transition: none; } }
+
 .svc-foot { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; text-align: left; margin-top: clamp(32px, 5vw, 52px); }
 .svc-foot h3 { font-family: "Oswald", var(--f-display); font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; font-size: var(--step-1); color: var(--ink); }
 .svc-foot-link { font-family: var(--f-body); font-weight: 600; font-size: var(--step-0); color: var(--accent); display: inline-flex; align-items: center; gap: 8px; }
