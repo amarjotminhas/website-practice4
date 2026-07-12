@@ -1,8 +1,8 @@
-# Meridian Interior Group — Demo Website
+# Meridian Construction — Demo Website
 
 A **fictional**, production-structured marketing website for a made-up 100% employee-owned commercial interior construction firm. Built as a static site with no build step and no dependencies. CSS/JS/favicon are self-contained; photography is loaded from Unsplash's CDN (the only external requests), so an internet connection is needed for images to appear.
 
-> ⚠️ **Fiction notice.** Meridian Interior Group and all of its people, projects, statistics, addresses, phone numbers, and emails are invented for design/demonstration purposes. It is not a real company and does not impersonate one. The layout is an original reinterpretation of common commercial-construction site patterns.
+> ⚠️ **Fiction notice.** Meridian Construction and all of its people, projects, statistics, addresses, phone numbers, and emails are invented for design/demonstration purposes. It is not a real company and does not impersonate one. The layout is an original reinterpretation of common commercial-construction site patterns.
 
 ## Pages
 
