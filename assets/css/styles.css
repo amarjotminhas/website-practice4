@@ -509,7 +509,7 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
   position: relative; z-index: 2; text-align: center;
   margin-top: clamp(-48px, -3vw, -12px); padding-block: 0 clamp(48px, 7vw, 84px);
 }
-.hero--light h1 { margin-inline: auto; max-width: none; color: var(--ink-blue); font-weight: 500; text-transform: uppercase; }
+.hero--light h1 { margin-inline: auto; max-width: none; color: var(--ink-blue); font-family: "Bebas Neue", var(--f-display); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; }
 .hero--light .hero-sub { margin-inline: auto; color: var(--slate); }
 .hero--light .hero-cta { justify-content: center; }
 
