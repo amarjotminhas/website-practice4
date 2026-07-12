@@ -175,6 +175,7 @@ header.nav {
 .burger { display: none; }
 @media (max-width: 980px) {
   .nav-links, .nav-cta .btn { display: none; }
+  .nav-cta { margin-left: auto; }   /* keep theme + burger pinned to the right */
   .burger { display: grid; place-items: center; width: 40px; height: 40px; background: none; border: 1px solid var(--line-strong); border-radius: 2px; cursor: pointer; color: var(--ink); }
   .burger span, .burger span::before, .burger span::after { content:""; display:block; width:18px; height:1.5px; background: currentColor; }
   .burger span { position: relative; }
@@ -568,7 +569,7 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 @media (max-width: 400px) {
   :root { --pad: 16px; }
   .brand { font-size: 1.14rem; }
-  .brand small { display: none; }            /* keep the wordmark from wrapping */
+  .brand small { white-space: nowrap; }      /* show full "Construction"; don't wrap */
   .nav-inner { gap: 12px; }
   .stat .num { font-size: clamp(1.7rem, 8vw, 2.2rem); }
   .people .esop { gap: 22px; }
