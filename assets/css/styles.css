@@ -546,6 +546,10 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
   .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
   .hero--light h1 { font-size: clamp(2.6rem, 11vw, 4rem); }
   .hero--light .hero-media { height: clamp(220px, 38vh, 340px); }   /* shorter hero photo on phones */
+  .nav-inner { height: 62px; }                 /* more compact top bar on phones */
+  .brand { font-size: 1.28rem; }
+  .brand-mark { width: 24px; height: 24px; }
+  .theme-btn, .burger { width: 36px; height: 36px; }
   .hero-sub { font-size: 1.02rem; margin-top: 20px; }
   .phero .wrap { padding-block: 44px; }
   .phero h1 { font-size: clamp(2.1rem, 9vw, 3rem); }
