@@ -301,6 +301,38 @@ header.nav {
 @media (max-width: 900px){ .loc-grid { grid-template-columns: repeat(2,1fr);} }
 @media (max-width: 480px){ .loc-grid { grid-template-columns: 1fr;} }
 
+/* ---------- US OFFICE MAP ---------- */
+.usmap { max-width: 940px; margin-inline: auto; }
+.usmap-frame { position: relative; }
+.usmap-svg { display: block; width: 100%; height: auto; }
+.usmap-svg .state { fill: #D7D4CB; transition: fill .2s ease; }
+.usmap-svg .borders, .usmap-svg .separator1 { stroke: #F2F1EC; fill: none; }
+.usmap-svg .dccircle { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .usmap-svg .state { fill: #262A30; }
+  :root:not([data-theme="light"]) .usmap-svg .borders,
+  :root:not([data-theme="light"]) .usmap-svg .separator1 { stroke: #14161A; }
+}
+:root[data-theme="dark"] .usmap-svg .state { fill: #262A30; }
+:root[data-theme="dark"] .usmap-svg .borders,
+:root[data-theme="dark"] .usmap-svg .separator1 { stroke: #14161A; }
+
+.usmap-pins { position: absolute; inset: 0; }
+.usmap-pin { position: absolute; transform: translate(-50%, -50%); width: 32px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.usmap-pin:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 50%; }
+.usmap-dot { position: relative; width: 13px; height: 13px; border-radius: 50%; background: #F5C518; border: 2px solid #fff; box-shadow: 0 0 0 4px rgba(245,197,24,0.28), 0 2px 6px rgba(0,0,0,0.35); }
+.usmap-pin.is-hq .usmap-dot { width: 17px; height: 17px; }
+.usmap-dot::before { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid rgba(245,197,24,0.65); animation: pinPulse 2.4s ease-out infinite; }
+@keyframes pinPulse { 0% { transform: scale(.55); opacity: .85; } 100% { transform: scale(1.9); opacity: 0; } }
+.usmap-tip { position: absolute; bottom: 150%; left: 50%; transform: translate(-50%, 6px); width: max-content; max-width: 220px; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 10px 13px; text-align: left; opacity: 0; visibility: hidden; transition: opacity .15s ease, transform .15s ease, visibility .15s; pointer-events: none; z-index: 6; }
+.usmap-tip b { display: block; font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: .02em; font-size: .92rem; color: var(--ink); }
+.usmap-tip span { display: block; color: var(--slate); font-size: .8rem; line-height: 1.35; margin-top: 3px; }
+.usmap-tip::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--card); }
+.usmap-pin:hover, .usmap-pin.open { z-index: 7; }
+.usmap-pin:hover .usmap-tip, .usmap-pin:focus-visible .usmap-tip, .usmap-pin.open .usmap-tip { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .usmap-dot::before { animation: none; } }
+@media (max-width: 560px) { .usmap-pin { width: 30px; height: 30px; } .usmap-dot { width: 11px; height: 11px; } .usmap-pin.is-hq .usmap-dot { width: 14px; height: 14px; } .usmap-tip { max-width: 160px; } }
+
 /* ---------- PORTFOLIO ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; align-items: center; }
 .filters .grp { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }

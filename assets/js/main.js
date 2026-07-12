@@ -285,6 +285,44 @@
     track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); } }, true);
   }
 
+  /* =============== US OFFICE MAP PINS (home only) =============== */
+  var pinsWrap = document.getElementById("usmapPins");
+  if (pinsWrap) {
+    var MW = 959, MH = 593;   /* matches the inline map viewBox */
+    var offices = [
+      { city: "Denver", note: "Headquarters — our home office since 2001.", x: 375, y: 235, hq: true },
+      { city: "Portland", note: "Our Pacific Northwest home.", x: 165, y: 72 },
+      { city: "Boise", note: "Building across the Boise metro.", x: 240, y: 130 },
+      { city: "Salt Lake City", note: "Our Mountain West operations hub.", x: 285, y: 200 },
+      { city: "Phoenix", note: "Projects across the Valley of the Sun.", x: 270, y: 340 },
+      { city: "Austin", note: "Serving Central Texas from downtown.", x: 495, y: 428 },
+      { city: "Nashville", note: "Delivering across Middle Tennessee.", x: 660, y: 300 }
+    ];
+    var closeAll = function () {
+      var open = pinsWrap.querySelectorAll(".usmap-pin.open");
+      for (var i = 0; i < open.length; i++) open[i].classList.remove("open");
+    };
+    offices.forEach(function (o) {
+      var pin = document.createElement("button");
+      pin.type = "button";
+      pin.className = "usmap-pin" + (o.hq ? " is-hq" : "");
+      pin.style.left = (o.x / MW * 100) + "%";
+      pin.style.top = (o.y / MH * 100) + "%";
+      pin.setAttribute("aria-label", o.city + " — " + o.note);
+      pin.innerHTML = '<span class="usmap-dot" aria-hidden="true"></span>' +
+        '<span class="usmap-tip" role="tooltip"><b>' + o.city + '</b><span>' + o.note + '</span></span>';
+      pin.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var wasOpen = pin.classList.contains("open");
+        closeAll();
+        if (!wasOpen) pin.classList.add("open");
+      });
+      pinsWrap.appendChild(pin);
+    });
+    document.addEventListener("click", closeAll);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
+  }
+
   /* =============== HERO SLIDESHOW (home only) =============== */
   var slides = document.querySelectorAll(".hero-slide");
   if (slides.length > 1) {
