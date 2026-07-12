@@ -253,7 +253,13 @@ header.nav {
 .svc-card-tag { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--f-mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,0.4); padding: 6px 11px; border-radius: 40px; }
 .svc-card-title { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 2; color: #fff; font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(1.35rem, 1.1rem + 1vw, 1.7rem); line-height: 1.08; }
 .svc-card:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
-.svc-dots { display: flex; justify-content: center; gap: 10px; margin-top: 24px; }
+.svc-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 24px; }
+.svc-arrow { width: 42px; height: 42px; flex: none; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: border-color .2s ease, color .2s ease; }
+.svc-arrow svg { width: 20px; height: 20px; }
+.svc-arrow:hover { border-color: var(--accent); color: var(--accent); }
+.svc-arrow[disabled] { opacity: 0.3; cursor: default; }
+.svc-arrow[disabled]:hover { border-color: var(--line-strong); color: var(--ink); }
+.svc-dots { display: flex; justify-content: center; gap: 10px; }
 .svc-dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: var(--line-strong); cursor: pointer; transition: background .2s ease, transform .2s ease; }
 .svc-dot:hover { background: var(--slate); }
 .svc-dot.is-active { background: var(--accent); transform: scale(1.3); }

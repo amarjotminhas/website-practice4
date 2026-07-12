@@ -217,6 +217,8 @@
 
     var cards = track.querySelectorAll(".svc-card");
     var dotEls = dots ? dots.querySelectorAll(".svc-dot") : [];
+    var prevBtn = document.getElementById("svcPrev");
+    var nextBtn = document.getElementById("svcNext");
     var active = -1;
 
     function setActive(i) {
@@ -226,9 +228,15 @@
         dotEls[d].classList.toggle("is-active", d === i);
         dotEls[d].setAttribute("aria-current", d === i ? "true" : "false");
       }
+      if (prevBtn) prevBtn.disabled = (i <= 0);
+      if (nextBtn) nextBtn.disabled = (i >= total - 1);
       if (status) status.textContent = (i + 1) + " of " + total;
     }
     function currentIndex() {
+      /* the first/last cards can never sit dead-centre, so pin them at the scroll extremes */
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft <= 2) return 0;
+      if (track.scrollLeft >= maxScroll - 2) return cards.length - 1;
       var center = track.scrollLeft + track.clientWidth / 2, best = 0, bestDist = Infinity;
       for (var i = 0; i < cards.length; i++) {
         var cc = cards[i].offsetLeft + cards[i].offsetWidth / 2, dist = Math.abs(cc - center);
@@ -253,6 +261,8 @@
       if (e.key === "ArrowRight") { e.preventDefault(); goTo(active + 1); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); goTo(active - 1); }
     });
+    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(active - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(active + 1); });
 
     /* Mouse drag (touch is native via scroll) */
     var isDown = false, startX = 0, startScroll = 0, moved = false;
