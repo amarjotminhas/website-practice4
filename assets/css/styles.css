@@ -222,6 +222,9 @@ header.nav {
 .svc h3 { font-size: var(--step-1); }
 .svc p { color: var(--slate); margin-top: 12px; font-size: 0.96rem; }
 .svc .more { margin-top: auto; padding-top: 18px; font-family: var(--f-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); display: inline-flex; gap: 8px; align-items: center; }
+.svc-media { margin: calc(-1 * clamp(24px,3vw,36px)) calc(-1 * clamp(24px,3vw,36px)) 18px; height: 156px; overflow: hidden; position: relative; }
+.svc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.svc:hover .svc-media img { transform: scale(1.05); }
 @media (max-width: 900px){ .svc-grid { grid-template-columns: repeat(2,1fr);} }
 @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr;} }
 
@@ -469,5 +472,5 @@ footer.site { background: var(--hero-bg); color: var(--hero-text); padding-block
 
 /* Hero image ambient zoom — 3s in, 3s out, endless loop */
 @keyframes heroZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
-.hero-media img, .phero-media img { transform-origin: center; animation: heroZoom 6s ease-in-out infinite; will-change: transform; }
+.hero-media img, .phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .hero-media img, .phero-media img { animation: none; } }
