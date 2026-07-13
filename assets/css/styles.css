@@ -242,7 +242,7 @@ header.nav {
 .expertise-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
 @media (max-width: 1100px) { .expertise-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) { .expertise-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .expertise-grid { grid-template-columns: 1fr; } .ec-card { aspect-ratio: 5 / 2; } .ec-img { object-fit: contain; } }
+@media (max-width: 480px) { .expertise-grid { grid-template-columns: 1fr; } .ec-card { aspect-ratio: 2 / 1; } }
 .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 @media (max-width: 900px) { .showcase-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .showcase-grid { grid-template-columns: 1fr; } }
@@ -358,7 +358,6 @@ header.nav {
 .empty { display: none; padding: 40px 0; color: var(--slate); font-family: var(--f-mono); font-size: 0.85rem; }
 @media (max-width: 900px){ .proj-grid { grid-template-columns: repeat(2,1fr);} }
 @media (max-width: 560px){ .proj-grid { grid-template-columns: 1fr;} }
-@media (max-width: 480px){ .thumb { aspect-ratio: 5 / 2; } .thumb img { object-fit: contain; } }
 
 /* ---------- PEOPLE / ESOP ---------- */
 .people { background: var(--hero-bg); color: var(--hero-text); border-radius: 6px; overflow: hidden; }
