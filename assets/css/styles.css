@@ -242,7 +242,7 @@ header.nav {
 .expertise-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
 @media (max-width: 1100px) { .expertise-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) { .expertise-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .expertise-grid { grid-template-columns: 1fr; } .ec-card { aspect-ratio: 2 / 1; } }
+@media (max-width: 480px) { .expertise-grid { grid-template-columns: 1fr; } .ec-card { aspect-ratio: 2 / 1; } .ec-body { text-align: center; } }
 .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 @media (max-width: 900px) { .showcase-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .showcase-grid { grid-template-columns: 1fr; } }
