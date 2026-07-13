@@ -280,7 +280,7 @@ header.nav {
 .svc-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: clamp(30px,5vw,56px); }
 .svc-nav-btn { font-family: "Oswald", var(--f-display); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; padding: 10px 18px; border: 1px solid var(--line-strong); border-radius: 40px; color: var(--ink); white-space: nowrap; transition: background .2s ease, color .2s ease, border-color .2s ease; }
 .svc-nav-btn:hover, .svc-nav-btn:focus-visible { background: var(--accent); color: #fff; border-color: var(--accent); }
-.svc-nav-btn.is-active { background: var(--ink-blue); color: var(--paper); border-color: var(--ink-blue); }
+.svc-nav-btn.is-active { border-color: var(--accent); color: var(--accent); }
 .svc-detail { display: grid; grid-template-columns: 1fr 1.1fr; gap: 14px clamp(28px,5vw,64px); align-items: start; padding-block: clamp(26px,4vw,48px); border-top: 1px solid var(--line); scroll-margin-top: 96px; }
 .svc-detail:first-of-type { border-top: 0; }
 .svc-detail.flip .art { order: 2; }
