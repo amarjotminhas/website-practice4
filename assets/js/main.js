@@ -70,8 +70,8 @@
         var closing = d.open;
         var cleanup = function () {
           panel.removeEventListener("transitionend", cleanup);
+          if (closing) d.open = false;        // hide content BEFORE clearing height, else it pops to full for a frame
           panel.style.transition = panel.style.height = panel.style.overflow = "";
-          if (closing) d.open = false;
           d._anim = false;
         };
         if (!closing) d.open = true;          // reveal content so it can be measured
