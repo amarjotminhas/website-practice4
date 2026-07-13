@@ -58,43 +58,32 @@
   /* ---- FAQ smooth open/close (animate the answer height) ---- */
   var faqItems = document.querySelectorAll(".faq details");
   if (faqItems.length && !reduce) {
+    var FAQ_TR = "height .32s cubic-bezier(.4,0,.2,1)";
     faqItems.forEach(function (d) {
       var summary = d.querySelector("summary");
       var panel = d.querySelector(".a");
       if (!summary || !panel) return;
       summary.addEventListener("click", function (e) {
-        if (d._anim) { e.preventDefault(); return; }
         e.preventDefault();
-        var done = function () {
-          panel.style.transition = panel.style.height = panel.style.overflow = "";
+        if (d._anim) return;
+        d._anim = true;
+        var closing = d.open;
+        var cleanup = function () {
+          panel.removeEventListener("transitionend", cleanup);
+          panel.style.transition = panel.style.height = panel.style.overflow = panel.style.willChange = "";
+          if (closing) d.open = false;
           d._anim = false;
         };
+        if (!closing) d.open = true;          // reveal content so it can be measured
+        var full = panel.scrollHeight;
         panel.style.overflow = "hidden";
-        if (d.open) {
-          panel.style.height = panel.scrollHeight + "px";
-          requestAnimationFrame(function () {
-            d._anim = true;
-            panel.style.transition = "height .3s ease";
-            panel.style.height = "0px";
-          });
-          panel.addEventListener("transitionend", function te() {
-            panel.removeEventListener("transitionend", te);
-            d.open = false; done();
-          });
-        } else {
-          d.open = true;
-          var target = panel.scrollHeight;
-          panel.style.height = "0px";
-          requestAnimationFrame(function () {
-            d._anim = true;
-            panel.style.transition = "height .3s ease";
-            panel.style.height = target + "px";
-          });
-          panel.addEventListener("transitionend", function te() {
-            panel.removeEventListener("transitionend", te);
-            done();
-          });
-        }
+        panel.style.willChange = "height";
+        panel.style.transition = "none";
+        panel.style.height = (closing ? full : 0) + "px";
+        panel.offsetHeight;                   // force reflow so the start height is committed
+        panel.style.transition = FAQ_TR;
+        panel.style.height = (closing ? 0 : full) + "px";
+        panel.addEventListener("transitionend", cleanup);
       });
     });
   }
