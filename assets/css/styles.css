@@ -127,6 +127,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .sec--alt { background: var(--paper-2); }
 .sec-head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; margin-bottom: clamp(34px,5vw,58px); }
 .sec-head h2 { font-size: var(--step-3); max-width: 18ch; margin-top: 16px; }
+.sec-head h2.hw-title { font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; font-size: clamp(2.6rem, 1.6rem + 3vw, 4rem); max-width: none; margin-top: 0; }
 .sec-label { display: block; text-align: left; font-family: "Oswald", var(--f-display); font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.02; text-wrap: balance; font-size: clamp(1.6rem, 4vw, 3rem); margin-bottom: clamp(10px, 1.5vw, 16px); color: var(--ink-blue); transform: scaleY(1.18); transform-origin: left bottom; }
 .sec-head-wrap { margin-bottom: clamp(34px, 5vw, 58px); }
 .sec-desc { color: var(--slate); max-width: 56ch; font-size: var(--step-1); line-height: 1.5; }
