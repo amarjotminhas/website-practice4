@@ -277,7 +277,11 @@ header.nav {
 @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr;} }
 
 /* ---------- SERVICE DETAIL ROWS ---------- */
-.svc-detail { display: grid; grid-template-columns: 1fr 1.1fr; gap: 14px clamp(28px,5vw,64px); align-items: start; padding-block: clamp(26px,4vw,48px); border-top: 1px solid var(--line); }
+.svc-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: clamp(30px,5vw,56px); }
+.svc-nav-btn { font-family: "Oswald", var(--f-display); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; padding: 10px 18px; border: 1px solid var(--line-strong); border-radius: 40px; color: var(--ink); white-space: nowrap; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.svc-nav-btn:hover, .svc-nav-btn:focus-visible { background: var(--accent); color: #fff; border-color: var(--accent); }
+.svc-nav-btn.is-active { background: var(--ink-blue); color: var(--paper); border-color: var(--ink-blue); }
+.svc-detail { display: grid; grid-template-columns: 1fr 1.1fr; gap: 14px clamp(28px,5vw,64px); align-items: start; padding-block: clamp(26px,4vw,48px); border-top: 1px solid var(--line); scroll-margin-top: 96px; }
 .svc-detail:first-of-type { border-top: 0; }
 .svc-detail.flip .art { order: 2; }
 .svc-detail .svc-tag { grid-column: 1 / -1; display: block; text-align: left; font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(2.3rem, 1.5rem + 2.4vw, 3.6rem); color: var(--ink); margin-bottom: 2px; }
@@ -629,6 +633,8 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
   .brand-mark { width: 24px; height: 24px; }
   .theme-btn, .burger { width: 36px; height: 36px; }
   .hero-sub { font-size: 1.02rem; margin-top: 20px; }
+  .svc-detail { scroll-margin-top: 74px; }
+  .svc-nav-btn { font-size: 0.78rem; padding: 9px 15px; }
   .phero .wrap { padding-block: 44px; }
   .phero h1 { font-size: clamp(2.1rem, 9vw, 3rem); }
   .phero .lead, .hero-sub { max-width: none; }

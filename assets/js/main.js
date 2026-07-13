@@ -245,6 +245,25 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
   }
 
+  /* =============== SERVICES SECTOR QUICK-NAV (scroll-spy) =============== */
+  var svcNav = document.querySelector(".svc-nav");
+  if (svcNav && "IntersectionObserver" in window) {
+    var navBtns = svcNav.querySelectorAll(".svc-nav-btn");
+    var byId = {};
+    navBtns.forEach(function (b) { byId[b.getAttribute("href").slice(1)] = b; });
+    var svcSecs = document.querySelectorAll(".svc-detail[id]");
+    var spy = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var b = byId[en.target.id];
+        if (!b) return;
+        navBtns.forEach(function (x) { x.classList.remove("is-active"); });
+        b.classList.add("is-active");
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    svcSecs.forEach(function (s) { spy.observe(s); });
+  }
+
   /* =============== HERO / PHERO SLIDESHOW (cross-fade + random pan) =============== */
   function initSlideshow(slides) {
     if (slides.length < 2) return;
