@@ -280,6 +280,7 @@ header.nav {
 .svc-detail { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px,5vw,64px); align-items: center; padding-block: clamp(40px,6vw,72px); border-top: 1px solid var(--line); }
 .svc-detail:first-of-type { border-top: 0; }
 .svc-detail.flip .art { order: 2; }
+.svc-detail .svc-tag { display: block; font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1rem; color: var(--accent); margin-bottom: 6px; }
 .svc-detail h2 { font-size: var(--step-2); margin: 16px 0 0; }
 .svc-detail p { color: var(--slate); margin-top: 16px; max-width: 48ch; }
 .svc-detail ul.checks { margin-top: 22px; display: grid; gap: 10px; }
