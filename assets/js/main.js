@@ -55,6 +55,50 @@
   /* ---- Year stamp ---- */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
+  /* ---- FAQ smooth open/close (animate the answer height) ---- */
+  var faqItems = document.querySelectorAll(".faq details");
+  if (faqItems.length && !reduce) {
+    faqItems.forEach(function (d) {
+      var summary = d.querySelector("summary");
+      var panel = d.querySelector(".a");
+      if (!summary || !panel) return;
+      summary.addEventListener("click", function (e) {
+        if (d._anim) { e.preventDefault(); return; }
+        e.preventDefault();
+        var done = function () {
+          panel.style.transition = panel.style.height = panel.style.overflow = "";
+          d._anim = false;
+        };
+        panel.style.overflow = "hidden";
+        if (d.open) {
+          panel.style.height = panel.scrollHeight + "px";
+          requestAnimationFrame(function () {
+            d._anim = true;
+            panel.style.transition = "height .3s ease";
+            panel.style.height = "0px";
+          });
+          panel.addEventListener("transitionend", function te() {
+            panel.removeEventListener("transitionend", te);
+            d.open = false; done();
+          });
+        } else {
+          d.open = true;
+          var target = panel.scrollHeight;
+          panel.style.height = "0px";
+          requestAnimationFrame(function () {
+            d._anim = true;
+            panel.style.transition = "height .3s ease";
+            panel.style.height = target + "px";
+          });
+          panel.addEventListener("transitionend", function te() {
+            panel.removeEventListener("transitionend", te);
+            done();
+          });
+        }
+      });
+    });
+  }
+
   /* ---- Unsplash image URL helper ---- */
   window.migImg = function (id, w) {
     return "https://images.unsplash.com/photo-" + id + "?auto=format&fit=crop&w=" + (w || 800) + "&q=80";
