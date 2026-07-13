@@ -277,7 +277,7 @@ header.nav {
 @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr;} }
 
 /* ---------- SERVICE DETAIL ROWS ---------- */
-.svc-detail { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px,5vw,64px); align-items: center; padding-block: clamp(40px,6vw,72px); border-top: 1px solid var(--line); }
+.svc-detail { display: grid; grid-template-columns: 1fr 1.1fr; gap: 14px clamp(28px,5vw,64px); align-items: start; padding-block: clamp(26px,4vw,48px); border-top: 1px solid var(--line); }
 .svc-detail:first-of-type { border-top: 0; }
 .svc-detail.flip .art { order: 2; }
 .svc-detail .svc-tag { grid-column: 1 / -1; display: block; text-align: left; font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(1.9rem, 1.3rem + 1.8vw, 3rem); color: var(--ink); margin-bottom: 2px; }
@@ -286,7 +286,7 @@ header.nav {
 .svc-detail ul.checks { margin-top: 22px; display: grid; gap: 10px; }
 .svc-detail ul.checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.96rem; }
 .svc-detail ul.checks li::before { content: "→"; color: inherit; font-family: var(--f-mono); flex: none; }
-.svc-detail .art { aspect-ratio: 5/4; border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; background: var(--hero-bg); position: relative; }
+.svc-detail .art { aspect-ratio: 3/2; border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; background: var(--hero-bg); position: relative; }
 .blueprint { position: absolute; inset: 0; }
 .blueprint .tagno { position: absolute; left: 18px; bottom: 16px; font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(236,235,230,0.55); text-transform: uppercase; }
 @media (max-width: 820px){ .svc-detail { grid-template-columns: 1fr; } .svc-detail.flip .art { order: 0; } }
