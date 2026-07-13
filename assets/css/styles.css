@@ -519,11 +519,11 @@ footer.site { background: var(--hero-bg); color: var(--hero-text); padding-block
 .foot-top { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; }
 .foot-brand .brand { color: var(--hero-text); }
 .foot-brand p { color: rgba(236,235,230,0.6); margin-top: 16px; max-width: 32ch; font-size: 0.92rem; }
-.foot-col h4 { font-family: var(--f-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: inherit; font-weight: 500; margin-bottom: 14px; }
+.foot-col h4 { font-family: "Oswald", var(--f-display); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.14em; color: inherit; font-weight: 600; margin-bottom: 14px; }
 .foot-col a { display: block; color: rgba(236,235,230,0.72); padding: 5px 0; font-size: 0.9rem; }
 .foot-col a:hover { color: var(--hero-text); }
 .foot-bot { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; margin-top: clamp(40px,6vw,64px); padding-top: 24px; border-top: 1px solid var(--hero-line); }
-.foot-bot .legal { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.04em; color: rgba(236,235,230,0.5); }
+.foot-bot .legal { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--f-body); font-size: 0.82rem; letter-spacing: 0; color: rgba(236,235,230,0.5); }
 .foot-bot .legal a:hover { color: var(--hero-text); }
 .social { display: flex; gap: 10px; }
 .social a { width: 34px; height: 34px; border: 1px solid var(--hero-line); border-radius: 2px; display: grid; place-items: center; color: rgba(236,235,230,0.7); }
