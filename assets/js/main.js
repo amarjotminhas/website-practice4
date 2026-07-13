@@ -58,7 +58,7 @@
   /* ---- FAQ smooth open/close (animate the answer height) ---- */
   var faqItems = document.querySelectorAll(".faq details");
   if (faqItems.length && !reduce) {
-    var FAQ_TR = "height .32s cubic-bezier(.4,0,.2,1)";
+    var FAQ_TR = "height .28s cubic-bezier(0,0,.2,1)";   /* decelerate: full speed from the start */
     faqItems.forEach(function (d) {
       var summary = d.querySelector("summary");
       var panel = d.querySelector(".a");
@@ -70,14 +70,13 @@
         var closing = d.open;
         var cleanup = function () {
           panel.removeEventListener("transitionend", cleanup);
-          panel.style.transition = panel.style.height = panel.style.overflow = panel.style.willChange = "";
+          panel.style.transition = panel.style.height = panel.style.overflow = "";
           if (closing) d.open = false;
           d._anim = false;
         };
         if (!closing) d.open = true;          // reveal content so it can be measured
         var full = panel.scrollHeight;
         panel.style.overflow = "hidden";
-        panel.style.willChange = "height";
         panel.style.transition = "none";
         panel.style.height = (closing ? full : 0) + "px";
         panel.offsetHeight;                   // force reflow so the start height is committed
