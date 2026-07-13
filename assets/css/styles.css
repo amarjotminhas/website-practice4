@@ -597,6 +597,20 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 .hero--light .hero-sub { margin-inline: auto; color: var(--slate); }
 .hero--light .hero-cta { justify-content: center; }
 
+/* Centered white title over a darkened image — services + inner pages */
+.hero--overlay .hero-inner { text-align: center; }
+.hero--overlay .hero-media::after { background: linear-gradient(180deg, rgba(13,17,23,0.55), rgba(13,17,23,0.72)); }
+.hero--overlay h1 { margin: 0 auto; max-width: none; color: #fff; font-family: "Bebas Neue", var(--f-display); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; font-size: clamp(3.2rem, 2rem + 5vw, 6.2rem); }
+.hero--overlay .hero-sub { margin-inline: auto; margin-top: 22px; color: rgba(255,255,255,0.86); }
+
+.phero--center .wrap { text-align: center; }
+.phero--center .breadcrumb, .phero--center .pcoords { justify-content: center; }
+.phero--center .phero-media img { opacity: 0.72; }
+.phero--center .phero-media::after { background: linear-gradient(180deg, rgba(13,17,23,0.55), rgba(13,17,23,0.72)); }
+.phero--center h1 { margin-inline: auto; max-width: none; color: #fff; font-family: "Bebas Neue", var(--f-display); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; font-size: clamp(3.2rem, 2rem + 5vw, 6.2rem); }
+.phero--center h1 em { color: #fff; }
+.phero--center .lead { margin-inline: auto; color: rgba(255,255,255,0.86); }
+
 /* Hero image ambient zoom — 3s in, 3s out, endless loop */
 @keyframes heroZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
 .phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
