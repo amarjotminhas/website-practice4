@@ -515,8 +515,7 @@ header.nav {
 .logos span { font-family: var(--f-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--slate); opacity: 0.75; }
 
 /* ---------- FOOTER ---------- */
-footer.site { position: relative; background: var(--hero-bg); color: var(--hero-text); padding-block: clamp(52px,7vw,84px) 34px; }
-footer.site::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 90px; background: linear-gradient(to bottom, transparent, var(--hero-bg)); pointer-events: none; }
+footer.site { background: var(--hero-bg); color: var(--hero-text); padding-block: clamp(52px,7vw,84px) 34px; }
 .foot-top { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; }
 .foot-brand .brand { color: var(--hero-text); }
 .foot-brand p { color: rgba(236,235,230,0.6); margin-top: 16px; max-width: 32ch; font-size: 0.92rem; }
