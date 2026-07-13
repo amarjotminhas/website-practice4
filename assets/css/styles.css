@@ -604,6 +604,15 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 .hero-slide.pan-down.is-active  { animation: panDown 8s ease-out both; }
 @media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } .hero-slide.is-active { animation: none; } }
 
+/* inner-page hero slideshow — same cross-fade + pan, kept darkened for legible overlay text */
+.phero-media img.phero-slide { opacity: 0; animation: none; transition: opacity 1.4s ease; will-change: opacity, transform; }
+.phero-media img.phero-slide.is-active { opacity: 0.5; }
+.phero-slide.pan-right.is-active { animation: panRight 8s ease-out both; }
+.phero-slide.pan-left.is-active  { animation: panLeft 8s ease-out both; }
+.phero-slide.pan-up.is-active    { animation: panUp 8s ease-out both; }
+.phero-slide.pan-down.is-active  { animation: panDown 8s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .phero-media img.phero-slide { transition: none; } .phero-slide.is-active { animation: none; } }
+
 /* =====================================================================
    MOBILE OPTIMISATIONS
    ===================================================================== */
