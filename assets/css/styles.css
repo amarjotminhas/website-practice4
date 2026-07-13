@@ -246,9 +246,9 @@ header.nav {
 .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 @media (max-width: 900px) { .showcase-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .showcase-grid { grid-template-columns: 1fr; } }
-.ec-card { position: relative; display: block; overflow: hidden; border-radius: 6px; aspect-ratio: 3 / 4; background: #10141c; color: #fff; text-decoration: none; }
+.ec-card { position: relative; display: block; overflow: hidden; border-radius: 6px; aspect-ratio: 3 / 4; background: #123a55; color: #fff; text-decoration: none; }
 .ec-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .35s ease, transform .6s ease; }
-.ec-card:hover .ec-img, .ec-card:focus-visible .ec-img { opacity: 0.4; }
+.ec-card:hover .ec-img, .ec-card:focus-visible .ec-img { opacity: 0.5; }
 .ec-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(16,20,28,0.85) 0%, rgba(16,20,28,0.25) 38%, rgba(16,20,28,0) 62%); transition: opacity .35s ease; }
 .ec-card:hover .ec-scrim, .ec-card:focus-visible .ec-scrim { opacity: 0; }
 .ec-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px 18px; z-index: 2; }
@@ -262,7 +262,7 @@ header.nav {
 
 /* Touch devices (no hover): keep boxes in the dimmed state with a "Learn more" tap hint */
 @media (hover: none) {
-  .ec-img { opacity: 0.4; }
+  .ec-img { opacity: 0.5; }
   .ec-scrim { opacity: 0; }
   .ec-desc { display: none; }
   .ec-learn { display: inline-block; }
