@@ -64,24 +64,23 @@
       var panel = d.querySelector(".a");
       if (!summary || !panel) return;
       summary.addEventListener("click", function (e) {
-        e.preventDefault();
-        if (d._anim) return;
+        if (d._anim) { e.preventDefault(); return; }
+        if (d.open) return;                   // closing: let the native <details> close instantly (no animation)
+        e.preventDefault();                   // opening: animate the reveal
         d._anim = true;
-        var closing = d.open;
         var cleanup = function () {
           panel.removeEventListener("transitionend", cleanup);
-          if (closing) d.open = false;        // hide content BEFORE clearing height, else it pops to full for a frame
           panel.style.transition = panel.style.height = panel.style.overflow = "";
           d._anim = false;
         };
-        if (!closing) d.open = true;          // reveal content so it can be measured
+        d.open = true;                        // reveal content so it can be measured
         var full = panel.scrollHeight;
         panel.style.overflow = "hidden";
         panel.style.transition = "none";
-        panel.style.height = (closing ? full : 0) + "px";
+        panel.style.height = "0px";
         panel.offsetHeight;                   // force reflow so the start height is committed
         panel.style.transition = FAQ_TR;
-        panel.style.height = (closing ? 0 : full) + "px";
+        panel.style.height = full + "px";
         panel.addEventListener("transitionend", cleanup);
       });
     });
