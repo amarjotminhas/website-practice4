@@ -599,7 +599,7 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 
 /* Title centered over the image (white), fade + description stay below — services/projects/locations/about */
 .hero--onimage .hero-media { display: flex; align-items: center; justify-content: center; }
-.hero--onimage .hero-media::after { background: linear-gradient(180deg, rgba(10,14,20,0.55) 0%, rgba(10,14,20,0.45) 42%, rgba(10,14,20,0.15) 66%, var(--paper) 97%); }
+.hero--onimage .hero-media::after { background: linear-gradient(180deg, rgba(10,14,20,0.72) 0%, rgba(10,14,20,0.64) 42%, rgba(10,14,20,0.3) 68%, var(--paper) 97%); }
 .hero--onimage .hero-title { position: relative; z-index: 2; margin: 0; padding-inline: 20px; text-align: center; color: #fff; font-family: "Bebas Neue", var(--f-display); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; font-size: clamp(3.2rem, 2rem + 5vw, 6.2rem); text-shadow: 0 2px 20px rgba(0,0,0,0.45); }
 
 /* Hero image ambient zoom — 3s in, 3s out, endless loop */
