@@ -387,11 +387,16 @@ header.nav {
 /* ---------- VALUES ---------- */
 .values { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; align-items: start; }
 .value { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 24px 20px; transition: background .25s ease, border-color .2s ease, box-shadow .25s ease; }
-.value:hover, .value:focus-within, .value.is-open { background: var(--paper); border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.value.is-open { background: var(--paper); border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .value .n { font-family: var(--f-body); font-weight: 600; font-size: 0.78rem; color: var(--slate); letter-spacing: 0.04em; }
 .value h3 { font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; font-size: 1.2rem; margin-top: 12px; }
 .value p { color: var(--slate); font-size: 0.9rem; margin-top: 0; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease; }
-.value:hover p, .value:focus-within p, .value.is-open p { max-height: 220px; opacity: 1; margin-top: 12px; }
+.value.is-open p { max-height: 220px; opacity: 1; margin-top: 12px; }
+/* Desktop (hover-capable) also reveals on hover/keyboard focus; touch relies on the tap toggle only */
+@media (hover: hover) {
+  .value:hover, .value:focus-within { background: var(--paper); border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .value:hover p, .value:focus-within p { max-height: 220px; opacity: 1; margin-top: 12px; }
+}
 @media (max-width: 900px){ .values { grid-template-columns: repeat(2,1fr);} }
 @media (max-width: 520px){ .values { grid-template-columns: 1fr;} }
 /* Touch/mobile only: a small chevron hinting the card taps open */
