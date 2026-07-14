@@ -597,6 +597,11 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 .hero--light .hero-sub { margin-inline: auto; color: var(--slate); }
 .hero--light .hero-cta { justify-content: center; }
 
+/* Title centered over the image (white), fade + description stay below — services/projects/locations/about */
+.hero--onimage .hero-media { display: flex; align-items: center; justify-content: center; }
+.hero--onimage .hero-media::after { background: linear-gradient(180deg, rgba(10,14,20,0.55) 0%, rgba(10,14,20,0.45) 42%, rgba(10,14,20,0.15) 66%, var(--paper) 97%); }
+.hero--onimage .hero-title { position: relative; z-index: 2; margin: 0; padding-inline: 20px; text-align: center; color: #fff; font-family: "Bebas Neue", var(--f-display); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; font-size: clamp(3.2rem, 2rem + 5vw, 6.2rem); text-shadow: 0 2px 20px rgba(0,0,0,0.45); }
+
 /* Hero image ambient zoom — 3s in, 3s out, endless loop */
 @keyframes heroZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
 .phero-media img { transform-origin: center; animation: heroZoom 10s ease-in-out infinite; will-change: transform; }
@@ -634,6 +639,7 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
   .hero-inner { padding-block: 54px 40px; }
   .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
   .hero--light h1 { font-size: clamp(2.6rem, 11vw, 4rem); }
+  .hero--onimage .hero-title { font-size: clamp(2.4rem, 10vw, 3.6rem); }
   .hero--light .hero-media { height: clamp(220px, 38vh, 340px); }   /* shorter hero photo on phones */
   .nav-inner { height: 62px; }                 /* more compact top bar on phones */
   .brand { font-size: 1.28rem; }
