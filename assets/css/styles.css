@@ -474,6 +474,9 @@ header.nav {
 .cta-card h3 { font-size: var(--step-2); margin: 16px 0 22px; }
 .cta-card p { color: var(--slate); margin-bottom: 26px; max-width: 38ch; }
 .cta-card.dark p { color: rgba(236,235,230,0.72); }
+.cta-band:not(.cta-band--single) .cta-card { display: flex; flex-direction: column; }
+.cta-band:not(.cta-band--single) .cta-card h3 { font-family: "Oswald", var(--f-display); font-weight: 600; }
+.cta-band:not(.cta-band--single) .cta-card .btn { margin-top: auto; align-self: flex-start; }
 @media (max-width: 720px){ .cta-band { grid-template-columns: 1fr; } }
 .cta-band--single { grid-template-columns: 1fr; }
 .cta-band--single .cta-card { text-align: center; }
