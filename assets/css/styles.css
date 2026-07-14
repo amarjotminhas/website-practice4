@@ -300,15 +300,20 @@ header.nav {
 @media (max-width: 820px){ .svc-detail { grid-template-columns: 1fr; } .svc-detail.flip .art { order: 0; } }
 
 /* ---------- LOCATIONS ---------- */
-.loc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-.loc { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; transition: transform .2s ease, border-color .2s ease; color: var(--ink); display: block; }
+.loc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; align-items: start; }
+.loc { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; transition: transform .2s ease, border-color .2s ease; color: var(--ink); display: block; }
 .loc:hover { transform: translateY(-4px); border-color: inherit; }
-.loc h3 { font-size: 1.28rem; letter-spacing: -0.02em; }
-.loc .coord { display: block; margin: 8px 0 14px; }
-.loc .addr { color: var(--slate); font-size: 0.9rem; line-height: 1.5; }
-.loc .tel { margin-top: 12px; font-family: var(--f-mono); font-size: 0.82rem; color: var(--ink); }
+.loc h3 { font-family: "Oswald", var(--f-display); font-weight: 600; font-size: 1.28rem; letter-spacing: 0; }
+.loc .addr { color: var(--slate); font-size: 0.9rem; line-height: 1.5; max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease; }
+.loc .tel { font-family: var(--f-mono); font-size: 0.82rem; color: var(--ink); max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease; }
+.loc.is-open .addr { max-height: 120px; opacity: 1; margin-top: 12px; }
+.loc.is-open .tel { max-height: 60px; opacity: 1; margin-top: 12px; }
+@media (hover: hover) {
+  .loc:hover .addr, .loc:focus-within .addr { max-height: 120px; opacity: 1; margin-top: 12px; }
+  .loc:hover .tel, .loc:focus-within .tel { max-height: 60px; opacity: 1; margin-top: 12px; }
+}
 .loc.hq { background: var(--hero-bg); color: var(--hero-text); border-color: transparent; }
-.loc.hq .addr { color: rgba(236,235,230,0.7);} .loc.hq .tel { color: inherit;} .loc.hq .coord{ color: rgba(236,235,230,0.5);}
+.loc.hq .addr { color: rgba(236,235,230,0.7);} .loc.hq .tel { color: inherit;}
 .loc .tag { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: inherit; display: block; margin-bottom: 6px; }
 @media (max-width: 900px){ .loc-grid { grid-template-columns: repeat(2,1fr);} }
 @media (max-width: 480px){ .loc-grid { grid-template-columns: 1fr;} }
@@ -401,8 +406,9 @@ header.nav {
 @media (max-width: 520px){ .values { grid-template-columns: 1fr;} }
 /* Touch/mobile only: a small chevron hinting the card taps open */
 @media (hover: none) {
-  .value::after { content: ""; position: absolute; top: 27px; right: 18px; width: 7px; height: 7px; border-right: 2px solid var(--slate); border-bottom: 2px solid var(--slate); transform: rotate(45deg); transition: transform .25s ease, border-color .2s ease; }
-  .value.is-open::after { transform: rotate(-135deg); border-color: var(--accent); }
+  .value::after, .loc::after { content: ""; position: absolute; top: 27px; right: 18px; width: 7px; height: 7px; border-right: 2px solid var(--slate); border-bottom: 2px solid var(--slate); transform: rotate(45deg); transition: transform .25s ease, border-color .2s ease; }
+  .loc.hq::after { border-color: rgba(236,235,230,0.7); }
+  .value.is-open::after, .loc.is-open::after { transform: rotate(-135deg); border-color: var(--accent); }
 }
 
 /* ---------- TIMELINE ---------- */

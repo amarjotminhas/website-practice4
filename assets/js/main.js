@@ -207,7 +207,7 @@
     });
   }
 
-  /* =============== US OFFICE MAP PINS (home only) =============== */
+  /* =============== US OFFICE MAP PINS (home + locations) =============== */
   var pinsWrap = document.getElementById("usmapPins");
   if (pinsWrap) {
     var MW = 959, MH = 593;   /* matches the inline map viewBox */
@@ -264,8 +264,8 @@
     svcSecs.forEach(function (s) { spy.observe(s); });
   }
 
-  /* =============== HOW WE WORK — tap a step card to reveal it (touch) =============== */
-  var stepCards = document.querySelectorAll(".values .value");
+  /* ====== REVEAL CARDS (How We Work steps, Locations offices) — tap to toggle (touch) ====== */
+  var stepCards = document.querySelectorAll(".values .value, .loc-grid .loc");
   if (stepCards.length) {
     stepCards.forEach(function (card) {
       card.setAttribute("tabindex", "0");
