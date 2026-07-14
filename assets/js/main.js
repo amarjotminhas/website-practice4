@@ -220,29 +220,61 @@
       { city: "Austin", note: "Serving Central Texas from downtown.", x: 495, y: 428 },
       { city: "Nashville", note: "Delivering across Middle Tennessee.", x: 660, y: 300 }
     ];
-    var closeAll = function () {
-      var open = pinsWrap.querySelectorAll(".usmap-pin.open");
-      for (var i = 0; i < open.length; i++) open[i].classList.remove("open");
+    var list = document.getElementById("usmapList");   /* locations page: side list instead of tooltips */
+    var pins = [], items = [];
+    var select = function (idx) {
+      pins.forEach(function (p, i) { p.classList.toggle("is-active", i === idx); });
+      items.forEach(function (it, i) { it.classList.toggle("is-active", i === idx); });
     };
-    offices.forEach(function (o) {
+    offices.forEach(function (o, i) {
       var pin = document.createElement("button");
       pin.type = "button";
       pin.className = "usmap-pin" + (o.hq ? " is-hq" : "");
       pin.style.left = (o.x / MW * 100) + "%";
       pin.style.top = (o.y / MH * 100) + "%";
       pin.setAttribute("aria-label", o.city + " — " + o.note);
-      pin.innerHTML = '<span class="usmap-dot" aria-hidden="true"></span>' +
-        '<span class="usmap-tip" role="tooltip"><b>' + o.city + '</b><span>' + o.note + '</span></span>';
-      pin.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var wasOpen = pin.classList.contains("open");
-        closeAll();
-        if (!wasOpen) pin.classList.add("open");
-      });
+      if (list) {
+        pin.innerHTML = '<span class="usmap-dot" aria-hidden="true"></span>';
+        pin.addEventListener("click", function () {
+          select(pin.classList.contains("is-active") ? -1 : i);
+        });
+      } else {
+        pin.innerHTML = '<span class="usmap-dot" aria-hidden="true"></span>' +
+          '<span class="usmap-tip" role="tooltip"><b>' + o.city + '</b><span>' + o.note + '</span></span>';
+        pin.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var wasOpen = pin.classList.contains("open");
+          closeAll();
+          if (!wasOpen) pin.classList.add("open");
+        });
+      }
       pinsWrap.appendChild(pin);
+      pins.push(pin);
+      if (list) {
+        var item = document.createElement("button");
+        item.type = "button";
+        item.className = "usmap-item";
+        item.setAttribute("role", "listitem");
+        item.innerHTML = '<span class="num">' + ("0" + (i + 1)) + '</span>' +
+          '<span class="city">' + o.city + '</span>' +
+          '<span class="note">' + o.note + '</span>';
+        item.addEventListener("click", function () {
+          select(item.classList.contains("is-active") ? -1 : i);
+        });
+        list.appendChild(item);
+        items.push(item);
+      }
     });
-    document.addEventListener("click", closeAll);
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
+    if (list) {
+      select(0);   /* Denver (HQ) preselected so the list never looks empty */
+    } else {
+      var closeAll = function () {
+        var open = pinsWrap.querySelectorAll(".usmap-pin.open");
+        for (var i = 0; i < open.length; i++) open[i].classList.remove("open");
+      };
+      document.addEventListener("click", closeAll);
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
+    }
   }
 
   /* =============== SERVICES SECTOR QUICK-NAV (scroll-spy) =============== */
