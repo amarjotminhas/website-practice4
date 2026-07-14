@@ -264,6 +264,23 @@
     svcSecs.forEach(function (s) { spy.observe(s); });
   }
 
+  /* =============== HOW WE WORK — tap a step card to reveal it (touch) =============== */
+  var stepCards = document.querySelectorAll(".values .value");
+  if (stepCards.length) {
+    stepCards.forEach(function (card) {
+      card.setAttribute("tabindex", "0");
+      var toggle = function () {
+        var open = card.classList.contains("is-open");
+        stepCards.forEach(function (c) { c.classList.remove("is-open"); });
+        if (!open) card.classList.add("is-open");
+      };
+      card.addEventListener("click", toggle);
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+      });
+    });
+  }
+
   /* =============== HERO / PHERO SLIDESHOW (cross-fade + random pan) =============== */
   function initSlideshow(slides) {
     if (slides.length < 2) return;
