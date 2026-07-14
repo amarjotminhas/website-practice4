@@ -234,6 +234,11 @@ header.nav {
 .stat .num .u { color: inherit; }
 .stat .lbl { font-family: var(--f-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.13em; color: var(--slate); margin-top: 12px; }
 @media (max-width: 860px){ .stats-grid { grid-template-columns: repeat(2,1fr);} .stat { border-left: 1px solid var(--line); padding: 26px 22px;} .stat:first-child{padding-left:22px;} .stat:nth-child(odd){border-left:0;} }
+.stats--boxed { background: transparent; border-bottom: 0; padding-block: clamp(6px, 1.5vw, 16px) clamp(34px, 5vw, 58px); }
+.stats--boxed .stats-grid { border: 1px solid var(--line-strong); border-radius: 14px; background: var(--card); overflow: hidden; }
+.stats--boxed .stat:first-child { padding-left: 26px; }
+.stats--boxed .stat .num { font-family: "Oswald", var(--f-display); font-weight: 600; letter-spacing: 0; }
+.stats--boxed .stat .lbl { font-family: var(--f-body); font-size: 0.88rem; text-transform: none; letter-spacing: 0; }
 
 /* ---------- SERVICES GRID ---------- */
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -436,7 +441,7 @@ header.nav {
 .person .ph { aspect-ratio: 1/1; position: relative; background: var(--hero-bg); overflow: hidden; }
 .person .ph .mono-initials { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; font-size: 2.6rem; color: rgba(236,235,230,0.14); letter-spacing: -0.03em; }
 .person .info { padding: 18px; }
-.person h3 { font-size: 1.1rem; }
+.person h3 { font-family: "Oswald", var(--f-display); font-weight: 600; font-size: 1.15rem; }
 .person .role { font-family: var(--f-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: inherit; margin-top: 6px; }
 @media (max-width: 900px){ .team-grid { grid-template-columns: repeat(2,1fr);} }
 @media (max-width: 480px){ .team-grid { grid-template-columns: 1fr;} }
@@ -492,17 +497,17 @@ header.nav {
 @media (max-width: 560px){ .faq .a { padding-left: 0; } }
 
 /* ---------- CTA BAND ---------- */
-.cta-band { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-.cta-card { background: var(--card); padding: clamp(36px,5vw,60px); }
+.cta-band { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; max-width: 1040px; margin-inline: auto; }
+.cta-card { background: var(--card); padding: clamp(26px, 3.5vw, 42px) clamp(28px, 4vw, 48px); }
 .cta-card.dark { background: var(--hero-bg); color: var(--hero-text); }
 .cta-card .eyebrow { color: inherit; }
-.cta-card h3 { font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; font-size: var(--step-2); margin: 16px 0 22px; }
+.cta-card h3 { font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; font-size: clamp(1.7rem, 1.4rem + 1.5vw, 2.6rem); margin: 16px 0 22px; }
 .cta-card p { color: var(--slate); margin-bottom: 26px; max-width: 38ch; }
 .cta-card.dark p { color: rgba(236,235,230,0.72); }
 .cta-band:not(.cta-band--single) .cta-card { display: flex; flex-direction: column; }
 .cta-band:not(.cta-band--single) .cta-card .btn { margin-top: auto; align-self: flex-start; }
 @media (max-width: 720px){ .cta-band { grid-template-columns: 1fr; } }
-.cta-band--single { grid-template-columns: 1fr; }
+.cta-band--single { grid-template-columns: 1fr; max-width: 700px; }
 .cta-band--single .cta-card { text-align: center; }
 .cta-band--single .cta-card .eyebrow { justify-content: center; }
 .cta-band--single .cta-card p { margin-inline: auto; }
