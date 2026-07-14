@@ -650,7 +650,7 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
   .hero-inner { padding-block: 54px 40px; }
   .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
   .hero--light h1 { font-size: clamp(2.6rem, 11vw, 4rem); }
-  .hero--onimage .hero-title { font-size: clamp(2.4rem, 10vw, 3.6rem); }
+  .hero--onimage .hero-title { font-size: clamp(3rem, 13vw, 4.6rem); }
   .hero--light .hero-media { height: clamp(220px, 38vh, 340px); }   /* shorter hero photo on phones */
   .nav-inner { height: 62px; }                 /* more compact top bar on phones */
   .brand { font-size: 1.28rem; }
