@@ -302,24 +302,6 @@ header.nav {
 .blueprint .tagno { position: absolute; left: 18px; bottom: 16px; font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(236,235,230,0.55); text-transform: uppercase; }
 @media (max-width: 820px){ .svc-detail { grid-template-columns: 1fr; } .svc-detail.flip .art { order: 0; } }
 
-/* ---------- LOCATIONS ---------- */
-.loc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; align-items: start; }
-.loc { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; transition: transform .2s ease, border-color .2s ease; color: var(--ink); display: block; }
-.loc:hover { transform: translateY(-4px); border-color: inherit; }
-.loc h3 { font-family: "Oswald", var(--f-display); font-weight: 600; font-size: 1.28rem; letter-spacing: 0; }
-.loc .addr { color: var(--slate); font-size: 0.9rem; line-height: 1.5; max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease; }
-.loc .tel { font-family: var(--f-mono); font-size: 0.82rem; color: var(--ink); max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease; }
-.loc.is-open .addr { max-height: 120px; opacity: 1; margin-top: 12px; }
-.loc.is-open .tel { max-height: 60px; opacity: 1; margin-top: 12px; }
-@media (hover: hover) {
-  .loc:hover .addr, .loc:focus-within .addr { max-height: 120px; opacity: 1; margin-top: 12px; }
-  .loc:hover .tel, .loc:focus-within .tel { max-height: 60px; opacity: 1; margin-top: 12px; }
-}
-.loc.hq { background: var(--hero-bg); color: var(--hero-text); border-color: transparent; }
-.loc.hq .addr { color: rgba(236,235,230,0.7);} .loc.hq .tel { color: inherit;}
-.loc .tag { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: inherit; display: block; margin-bottom: 6px; }
-@media (max-width: 900px){ .loc-grid { grid-template-columns: repeat(2,1fr);} }
-@media (max-width: 480px){ .loc-grid { grid-template-columns: 1fr;} }
 
 /* ---------- US OFFICE MAP ---------- */
 .usmap { max-width: 940px; margin-inline: auto; }
@@ -363,10 +345,13 @@ header.nav {
 .usmap-item:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
 .usmap-item .num { font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.12em; color: var(--slate); margin-right: 12px; }
 .usmap-item .city { font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; font-size: 1.05rem; color: var(--ink); transition: color .2s ease; }
+.usmap-item .hq-tag { font-family: var(--f-mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 2px 5px; vertical-align: 2px; margin-left: 6px; }
 .usmap-item .note { display: block; color: var(--slate); font-size: 0.86rem; line-height: 1.45; max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; transition: max-height .3s ease, opacity .25s ease, margin-top .3s ease; }
+.usmap-item .note .addr { display: block; }
+.usmap-item .note .tel { display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink); margin-top: 6px; }
 .usmap-item.is-active { border-left-color: var(--accent); background: var(--card); }
 .usmap-item.is-active .city { color: var(--accent); }
-.usmap-item.is-active .note { max-height: 80px; opacity: 1; margin-top: 6px; }
+.usmap-item.is-active .note { max-height: 110px; opacity: 1; margin-top: 8px; }
 .usmap-pin.is-active { z-index: 7; }
 .usmap-pin.is-active .usmap-dot { background: var(--ink-blue); box-shadow: 0 0 0 5px rgba(46,150,214,0.45), 0 2px 6px rgba(0,0,0,0.35); }
 @media (max-width: 900px) {
@@ -430,9 +415,8 @@ header.nav {
 @media (max-width: 520px){ .values { grid-template-columns: 1fr;} }
 /* Touch/mobile only: a small chevron hinting the card taps open */
 @media (hover: none) {
-  .value::after, .loc::after { content: ""; position: absolute; top: 27px; right: 18px; width: 7px; height: 7px; border-right: 2px solid var(--slate); border-bottom: 2px solid var(--slate); transform: rotate(45deg); transition: transform .25s ease, border-color .2s ease; }
-  .loc.hq::after { border-color: rgba(236,235,230,0.7); }
-  .value.is-open::after, .loc.is-open::after { transform: rotate(-135deg); border-color: var(--accent); }
+  .value::after { content: ""; position: absolute; top: 27px; right: 18px; width: 7px; height: 7px; border-right: 2px solid var(--slate); border-bottom: 2px solid var(--slate); transform: rotate(45deg); transition: transform .25s ease, border-color .2s ease; }
+  .value.is-open::after { transform: rotate(-135deg); border-color: var(--accent); }
 }
 
 /* ---------- TIMELINE ---------- */
@@ -607,7 +591,7 @@ footer.site { background: var(--hero-bg); color: var(--hero-text); padding-block
 .people .art .badge { z-index: 2; }
 
 /* Blue accent appears only on hover for clickable / navigational text */
-a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
+a, .svc h3, .svc .more, .proj .meta h3, .res h3, .res .rd,
 .job .jt, .job .japply, .faq summary, .foot-col a, .foot-bot .legal a { transition: color .15s ease; }
 .nav-links a.top:hover,
 .menu a:hover,
@@ -621,7 +605,6 @@ a, .svc h3, .svc .more, .proj .meta h3, .loc h3, .res h3, .res .rd,
 .btn--ghost:hover,
 .svc:hover h3, .svc:hover .more,
 .proj:hover h3,
-.loc:hover h3,
 .res:hover h3, .res:hover .rd,
 .job:hover .jt, .job:hover .japply { color: var(--accent); }
 .social a:hover, .btn--ghost:hover { border-color: var(--accent); }

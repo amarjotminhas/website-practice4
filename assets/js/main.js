@@ -212,13 +212,13 @@
   if (pinsWrap) {
     var MW = 959, MH = 593;   /* matches the inline map viewBox */
     var offices = [
-      { city: "Denver", note: "Headquarters — our home office since 2001.", x: 375, y: 235, hq: true },
-      { city: "Portland", note: "Our Pacific Northwest home.", x: 165, y: 72 },
-      { city: "Boise", note: "Building across the Boise metro.", x: 240, y: 130 },
-      { city: "Salt Lake City", note: "Our Mountain West operations hub.", x: 285, y: 200 },
-      { city: "Phoenix", note: "Projects across the Valley of the Sun.", x: 270, y: 340 },
-      { city: "Austin", note: "Serving Central Texas from downtown.", x: 495, y: 428 },
-      { city: "Nashville", note: "Delivering across Middle Tennessee.", x: 660, y: 300 }
+      { city: "Denver", note: "Headquarters — our home office since 2001.", addr: "1401 Wynkoop Street, Suite 400<br>Denver, CO 80202", tel: "303 · 555 · 0142", x: 375, y: 235, hq: true },
+      { city: "Portland", note: "Our Pacific Northwest home.", addr: "1120 NW Couch Street, Suite 500<br>Portland, OR 97209", tel: "503 · 555 · 0176", x: 165, y: 72 },
+      { city: "Boise", note: "Building across the Boise metro.", addr: "877 W Main Street, Suite 600<br>Boise, ID 83702", tel: "208 · 555 · 0167", x: 240, y: 130 },
+      { city: "Salt Lake City", note: "Our Mountain West operations hub.", addr: "201 S Main Street, Suite 900<br>Salt Lake City, UT 84111", tel: "801 · 555 · 0133", x: 285, y: 200 },
+      { city: "Phoenix", note: "Projects across the Valley of the Sun.", addr: "2 N Central Ave, Suite 1800<br>Phoenix, AZ 85004", tel: "602 · 555 · 0119", x: 270, y: 340 },
+      { city: "Austin", note: "Serving Central Texas from downtown.", addr: "600 Congress Avenue, Suite 1200<br>Austin, TX 78701", tel: "512 · 555 · 0188", x: 495, y: 428 },
+      { city: "Nashville", note: "Delivering across Middle Tennessee.", addr: "424 Church Street, Suite 2000<br>Nashville, TN 37219", tel: "615 · 555 · 0155", x: 660, y: 300 }
     ];
     var list = document.getElementById("usmapList");   /* locations page: side list instead of tooltips */
     var pins = [], items = [];
@@ -256,8 +256,8 @@
         item.className = "usmap-item";
         item.setAttribute("role", "listitem");
         item.innerHTML = '<span class="num">' + ("0" + (i + 1)) + '</span>' +
-          '<span class="city">' + o.city + '</span>' +
-          '<span class="note">' + o.note + '</span>';
+          '<span class="city">' + o.city + (o.hq ? ' <span class="hq-tag">HQ</span>' : '') + '</span>' +
+          '<span class="note"><span class="addr">' + o.addr + '</span><span class="tel">' + o.tel + '</span></span>';
         item.addEventListener("click", function () {
           select(item.classList.contains("is-active") ? -1 : i);
         });
@@ -296,8 +296,8 @@
     svcSecs.forEach(function (s) { spy.observe(s); });
   }
 
-  /* ====== REVEAL CARDS (How We Work steps, Locations offices) — tap to toggle (touch) ====== */
-  var stepCards = document.querySelectorAll(".values .value, .loc-grid .loc");
+  /* ====== REVEAL CARDS (How We Work steps) — tap to toggle (touch) ====== */
+  var stepCards = document.querySelectorAll(".values .value");
   if (stepCards.length) {
     stepCards.forEach(function (card) {
       card.setAttribute("tabindex", "0");
