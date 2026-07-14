@@ -480,7 +480,7 @@ header.nav {
 .cta-card { background: var(--card); padding: clamp(36px,5vw,60px); }
 .cta-card.dark { background: var(--hero-bg); color: var(--hero-text); }
 .cta-card .eyebrow { color: inherit; }
-.cta-card h3 { font-family: "Oswald", var(--f-display); font-weight: 600; font-size: var(--step-2); margin: 16px 0 22px; }
+.cta-card h3 { font-family: "Oswald", var(--f-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; font-size: var(--step-2); margin: 16px 0 22px; }
 .cta-card p { color: var(--slate); margin-bottom: 26px; max-width: 38ch; }
 .cta-card.dark p { color: rgba(236,235,230,0.72); }
 .cta-band:not(.cta-band--single) .cta-card { display: flex; flex-direction: column; }
