@@ -507,7 +507,7 @@ header.nav {
 .cta-band:not(.cta-band--single) .cta-card { display: flex; flex-direction: column; }
 .cta-band:not(.cta-band--single) .cta-card .btn { margin-top: auto; align-self: flex-start; }
 @media (max-width: 720px){ .cta-band { grid-template-columns: 1fr; } }
-.cta-band--single { grid-template-columns: 1fr; max-width: 700px; }
+.cta-band--single { grid-template-columns: 1fr; max-width: 600px; }
 .cta-band--single .cta-card { text-align: center; }
 .cta-band--single .cta-card .eyebrow { justify-content: center; }
 .cta-band--single .cta-card p { margin-inline: auto; }
